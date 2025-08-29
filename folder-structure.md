@@ -1,0 +1,43 @@
+```
+└── 📁public
+    └── 📁images
+        ├── chicken_01.jpg
+        ├── eggs_01.jpg
+    ├── file.svg
+    ├── globe.svg
+    ├── next.svg
+    ├── vercel.svg
+    └── window.svg
+└── 📁src
+    └── 📁app
+        └── 📁about
+            ├── page.tsx
+        └── 📁components
+            └── 📁reusable
+                ├── ContactPageForm.jsx
+            ├── Description.tsx
+            ├── Footer.tsx
+            ├── Header.tsx
+            ├── Heading.tsx
+            ├── Login.tsx
+            ├── ProductCard.tsx
+            ├── VendorDashboard.jsx
+        └── 📁contact
+            ├── page.tsx
+        └── 📁context
+            ├── UserContext.tsx
+        └── 📁profile
+            └── 📁invoice
+                ├── page.tsx
+            └── 📁orders
+                ├── page.tsx
+            └── 📁settings
+                ├── page.tsx
+            ├── page.tsx
+        └── 📁registration
+            ├── page.tsx
+        ├── favicon.ico
+        ├── globals.css
+        ├── layout.tsx
+        └── page.tsx
+```
