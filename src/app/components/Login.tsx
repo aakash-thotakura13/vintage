@@ -24,7 +24,7 @@ export default function Login() {
   };
 
   return (
-    <section style={{ width: "30%", margin: "2em auto", boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px", padding: "1em", borderRadius: "1em", }}>
+    <section style={{ maxWidth: "65%", margin: "2em auto", boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px", padding: "1em", borderRadius: "1em", }}>
       <p className="text-2xl pb-4 text-center">Login to Your Account</p>
       <Description title="Enter your details to access your Vendor dashboard." />
 
@@ -46,7 +46,7 @@ export default function Login() {
           />
         </div>
 
-        <button type="submit" className="bg-yellow-500 text-white px-4 py-2 rounded-xl">Login</button>
+        <button type="submit" className=" px-4 py-2 rounded-xl border-2 border-yellow-600 hover:bg-yellow-600 hover:cursor-pointer">Login</button>
 
       </form>
 

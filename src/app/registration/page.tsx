@@ -43,7 +43,7 @@ export default function VendorRegistration() {
   return (
     <section
       style={{
-        width: "43%",
+
         margin: "2em auto",
         boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
         padding: "1em",
@@ -52,105 +52,79 @@ export default function VendorRegistration() {
     >
       <p className="text-2xl pb-4">Business Information</p>
 
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} style={{ display: "flex", flexWrap: "wrap", gap: "1em", maxWidth: "65%", margin: "0 auto", }}>
         {/* First Row */}
-        <section
-          style={{
-            display: "grid",
-            gap: "1em",
-            gridTemplateColumns: "1fr 1fr",
-            margin: "1em 0em",
-          }}
-        >
-          <Input
-            label="Business Name *"
-            name="businessName"
-            value={formData.businessName}
-            onChange={handleChange}
-            placeholder="Enter your Business Name"
-          />
-          <Input
-            label="Contact Person *"
-            name="contactPersonName"
-            value={formData.contactPersonName}
-            onChange={handleChange}
-            placeholder="Enter contact person name"
-          />
-        </section>
+        <Input
+          label="Business Name *"
+          name="businessName"
+          value={formData.businessName}
+          onChange={handleChange}
+          placeholder="Enter your Business Name"
+        />
+        <Input
+          label="Contact Person *"
+          name="contactPersonName"
+          value={formData.contactPersonName}
+          onChange={handleChange}
+          placeholder="Enter contact person name"
+        />
 
-        {/* Second Row */}
-        <section
-          style={{
-            display: "grid",
-            gap: "1em",
-            gridTemplateColumns: "1fr 1fr",
-            margin: "1em 0em",
-          }}
-        >
-          <Input
-            label="Email Address *"
-            name="emailAddress"
-            value={formData.emailAddress}
-            onChange={handleChange}
-            placeholder="Enter business email"
-          />
-          <div style={{ display: "grid" }}>
-            <label htmlFor="businessType">Inquiry Type</label>
-            <select
-              name="businessType"
-              id="businessType"
-              value={formData.businessType}
-              onChange={handleChange}
-              style={{
-                border: "1px solid lightgrey",
-                borderRadius: "0.5em",
-                padding: "0.25em 0.5em",
-                margin: "0.2em 0em",
-              }}
-            >
-              <option value="" disabled hidden>
-                Select Business Type
-              </option>
-              <option value="restaurant">Restaurant</option>
-              <option value="retailer">Retailer</option>
-              <option value="wholesaler">Wholesaler</option>
-              <option value="distributor">Distributor</option>
-              <option value="other">Other</option>
-            </select>
-          </div>
-        </section>
+        <Input
+          label="Email Address *"
+          name="emailAddress"
+          value={formData.emailAddress}
+          onChange={handleChange}
+          placeholder="Enter business email"
+        />
 
-        {/* Third Row */}
-        <section
-          style={{
-            display: "grid",
-            gap: "1em",
-            gridTemplateColumns: "1fr 1fr 1fr",
-            margin: "1em 0em",
-          }}
-        >
-          <Input
-            label="City"
-            name="city"
-            value={formData.city}
+        <div style={{ display: "grid", flex: "1 1 350px", }}>
+          <label htmlFor="businessType">Inquiry Type</label>
+          <select
+            name="businessType"
+            id="businessType"
+            value={formData.businessType}
             onChange={handleChange}
-            placeholder="Enter City"
-          />
-          <Input
-            label="State"
-            name="state"
-            value={formData.state}
-            onChange={handleChange}
-            placeholder="Enter State"
-          />
-          <Input
-            label="Zip Code"
-            name="zipCode"
-            value={formData.zipCode}
-            onChange={handleChange}
-            placeholder="Enter Zip Code"
-          />
-        </section>
+            style={{
+              border: "1px solid lightgrey",
+              borderRadius: "0.5em",
+              padding: "0.25em 0.5em",
+              margin: "0.2em 0em",
+            }}
+          >
+            <option value="" disabled hidden>
+              Select Business Type
+            </option>
+            <option value="restaurant">Restaurant</option>
+            <option value="retailer">Retailer</option>
+            <option value="wholesaler">Wholesaler</option>
+            <option value="distributor">Distributor</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+        <Input
+          label="City"
+          name="city"
+          value={formData.city}
+          onChange={handleChange}
+          placeholder="Enter City"
+        />
+
+        <Input
+          label="State"
+          name="state"
+          value={formData.state}
+          onChange={handleChange}
+          placeholder="Enter State"
+        />
+
+        <Input
+          label="Zip Code"
+          name="zipCode"
+          value={formData.zipCode}
+          onChange={handleChange}
+          placeholder="Enter Zip Code"
+        />
 
         <Input
           label="Business Address *"
@@ -160,7 +134,7 @@ export default function VendorRegistration() {
           placeholder="Enter business address"
         />
 
-        <div style={{ display: "grid", margin: "1em 0em" }}>
+        <div style={{ display: "grid", margin: "1em 0em", flex: "1 1 500px" }}>
           <label htmlFor="businessDescription">Business Description</label>
           <textarea
             name="businessDescription"
@@ -179,14 +153,7 @@ export default function VendorRegistration() {
           ></textarea>
         </div>
 
-        <div
-          style={{
-            margin: "1em 0em",
-            display: "flex",
-            alignItems: "flex-start",
-            flexWrap: "wrap",
-          }}
-        >
+        <div style={{ flex: "1 1 500px", }}>
           <input
             type="checkbox"
             name="termsAndConditions"
@@ -204,7 +171,7 @@ export default function VendorRegistration() {
 
         <button
           type="submit"
-          className="bg-yellow-500 text-white px-4 py-2 rounded-xl"
+          className="bg-yellow-500 text-white px-4 py-2 rounded-xl display-block mx-auto"
         >
           Send Message
         </button>
@@ -223,7 +190,7 @@ type InputProps = {
 
 function Input({ label, name, value, onChange, placeholder }: InputProps) {
   return (
-    <div style={{ display: "grid" }}>
+    <div style={{ display: "grid", flex: "1 1 350px" }}>
       <label htmlFor={name}>{label}</label>
       <input
         type="text"

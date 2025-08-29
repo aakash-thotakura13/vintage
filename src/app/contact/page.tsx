@@ -57,19 +57,21 @@ export default function ContactPage() {
   return (
     <section>
 
-      <section style={{ display: "grid", gridTemplateColumns: "1fr 1fr", alignItems: "center", width: "80%", margin: "2em auto", }}>
-        <section style={{ width: "80%", margin: "1em auto", }}>
+      <section style={{ display: "flex", justifyContent: "space-around", flexWrap: "wrap", gap: "1em", width: "80%", margin: "0 auto", padding: "1em 0em" }}>
+
+        <section style={{ flex: "1 1 400px", margin: "2em 0em", }}>
           <p className="text-2xl">Send us a Message</p>
           <p>Fill out the form below and we will get back to you within 24 hours.</p>
 
           {/* A CONTACT FORM WILL BE DISPLAYED HERE <br /> Working in progress... */}
           <ContactPageForm />
         </section>
-        <section>
+
+        <section style={{ flex: "1 1 400px" }}>
           <Heading title="Get in Touch" />
           <Description title="Whether you have questions about our products, want to become a vendor partner, or need support with your order, we're here to help." />
 
-          <section style={{ display: "grid", gap: "1em", padding: "2em", }}>
+          <section style={{ display: "grid", gap: "1em", margin: "0em auto", }}>
             {
               contactInfo.map((entry, id) => (
                 <div key={id} style={{ display: "flex", alignItems: "center", border: "1px solid lightgrey", padding: "1em", borderRadius: "1em", }}>
@@ -85,17 +87,18 @@ export default function ContactPage() {
             }
           </section>
         </section>
+
       </section>
 
-      <section className="bg-gray-100 my-8" >
+      <section className="bg-gray-100 py-8 my-8" >
 
         <Heading title="Frequently Asked Questions" />
         <Description title="Find quick answers to common questions about our products and services." />
 
-        <section style={{ width: "60%", margin: "0em auto", display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: "1em", padding: "2em 1em", }}>
+        <section style={{ display: "flex", justifyContent: "space-around", flexWrap: "wrap", gap: "1em", width: "80%", margin: "0 auto", padding: "1em 0em" }}>
           {
             frequentlyAskedQuestions.map((entry, id) => (
-              <div key={id} style={{ border: "1px solid lightgrey", padding: "0.5em 1em", borderRadius: "1em", backgroundColor: "white", }}>
+              <div key={id} style={{ border: "1px solid lightgrey", padding: "0.5em 1em", borderRadius: "1em", backgroundColor: "white", flex: "1 0 250px", }}>
                 <p className="font-bold pb-4">{entry.question}</p>
                 <p className="leading-tight text-sm text-gray-600">{entry.answer}</p>
               </div>

@@ -17,11 +17,11 @@ export default function Header() {
 
   return (
     <header style={{ position: "sticky", top: 0, backgroundColor: "white" }}>
-      <div className="grid grid-cols-[1fr_1fr] items-center gap-4 px-8 py-4 border-b-2 border-yellow-600">
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "0.5em 1em" }}>
         <div>
           <h1>VintagePoultry</h1>
         </div>
-        <nav className="flex gap-4 justify-end">
+        <nav>
           {navLinks.map(({ title, path }) => (
             <Link
               key={path}

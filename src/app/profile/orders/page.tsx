@@ -32,7 +32,7 @@ export default function OrdersPage() {
       <Heading title="Order History" />
       <Description title="You have not placed any orders yet." />
 
-      <table>
+      <table style={{ overflowX: "scroll" }}>
         <thead>
           <tr>
             <th>Order ID</th>
@@ -47,15 +47,15 @@ export default function OrdersPage() {
           {
             orders.map((order, id) => {
               return (
-                <tr key={id} style={{ fontSize: "0.8em" }}>
+                <tr key={id} style={{ fontSize: "0.9em" }}>
                   <td>{order.orderId}</td>
                   <td>{order.orderDate}</td>
                   <td>{order.items.map((item, id) => <p key={id}>{item}</p>)}</td>
                   <td>₹ {order.totalPrice}</td>
                   <td>{order.status}</td>
                   <td>
-                    <button style={{ border: "1px solid goldenrod", color: "goldenrod", padding: "0.25em 0.5em", borderRadius: "0.5em" }}>View Details</button>
-                    <button style={{ backgroundColor: "goldenrod", color: "white", padding: "0.25em 0.5em", borderRadius: "0.5em" }}>Download</button>
+                    <button style={{ border: "1px solid goldenrod", color: "goldenrod", padding: "0.25em 0.5em", borderRadius: "0.5em", cursor: "pointer", }}>View Details</button>
+                    <button style={{ backgroundColor: "goldenrod", color: "white", padding: "0.25em 0.5em", borderRadius: "0.5em", cursor: "pointer", }}>Download</button>
                   </td>
                 </tr>
               )

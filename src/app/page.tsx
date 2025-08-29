@@ -101,51 +101,55 @@ export default function Home() {
 
   return (
     <div>
-      <section className="grid grid-cols-[1fr_1fr] gap-4 my-8">
-        <section></section>
-        <Image src="https://res.cloudinary.com/ddgmru7d1/image/upload/v1756299859/chicken_01_dll8od.jpg" alt="chicken_one" className="object-cover rounded-3xl shadow-2xl" width={500} height={500} />
+      <section style={{ display: "flex", justifyContent: "space-around", flexWrap: "wrap", gap: "1em", width: "80%", margin: "0 auto", }}>
+        <section style={{ flex: "1 1 0", padding: "5em", backgroundColor: "gold", }}></section>
+        <Image src="https://res.cloudinary.com/ddgmru7d1/image/upload/v1756299859/chicken_01_dll8od.jpg" alt="chicken_one" className="object-cover rounded-3xl shadow-2xl" width={450} height={450} style={{ flex: "0 0 300px", }} />
       </section>
 
-      <section className="bg-gray-100 py-8">
-        <section style={{ width: "70%", margin: "0 auto", display: "flex", justifyContent: "space-around" }}>
+      <section className="bg-gray-100 py-8 my-8">
+        <section style={{ width: "70%", margin: "0 auto", display: "flex", justifyContent: "space-around", flexWrap: "wrap", gap: "1em", }}>
           {
             firstBar.map((entry, id) => (
-              <div key={id} className="text-center">
+              <div key={id} className="text-center" style={{ flex: "1 1 0", }}>
                 <h2 className="text-3xl font-bold text-yellow-500">{entry.top}</h2>
-                <p>{entry.bottom}</p>
+                <p className="text-sm">{entry.bottom}</p>
               </div>
             ))
           }
         </section>
       </section>
 
-      <Heading title="Featured Products" />
-      <Description title="Discover our most popular farm-fresh products, carefully selected for quality and taste!" />
+      <section className="bg-white-100 py-8 my-8">
 
-      <section className="flex justify-center" style={{ width: "70%", margin: "0 auto", }}>
-        {
-          featuredProducts.map((entry) => (
-            <ProductCard
-              key={entry.id}
-              name={entry.name}
-              price={entry.price}
-              description={entry.description}
-              badge={entry.badge}
-              image={entry.image}
-            />
-          ))
-        }
+        <Heading title="Featured Products" />
+        <Description title="Discover our most popular farm-fresh products, carefully selected for quality and taste!" />
+
+        <section style={{ width: "80%", margin: "0 auto", display: "flex", justifyContent: "space-between", flexWrap: "wrap", gap: "1em", }}>
+          {
+            featuredProducts.map((entry) => (
+              <ProductCard
+                key={entry.id}
+                name={entry.name}
+                price={entry.price}
+                description={entry.description}
+                badge={entry.badge}
+                image={entry.image}
+              />
+            ))
+          }
+        </section>
+
       </section>
 
-      <section className="bg-gray-100 my-8" >
+      <section className="bg-gray-100 py-8 my-8" >
 
         <Heading title="Why Choose VintagePoultry?" />
         <Description title="We're committed to providing the highest quality products with exceptional service." />
 
-        <section style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "1em", padding: "2em", width: "70%", margin: "0 auto", }}>
+        <section style={{ width: "80%", margin: "0 auto", display: "flex", justifyContent: "space-between", flexWrap: "wrap", gap: "1em", }}>
           {
             features.map((entry, id) => (
-              <div key={id} style={{ textAlign: "center", border: "1px solid goldenrod", padding: "1em", borderRadius: "1em", }}>
+              <div key={id} style={{ textAlign: "center", border: "1px solid goldenrod", padding: "1em", borderRadius: "1em", flex: "1 1 300px", }}>
                 <p style={{ display: "inline-block", fontSize: "2em", backgroundColor: "goldenrod", borderRadius: "50%", marginBottom: "0.5em", }}>{entry.icon}</p>
                 <p className="font-bold">{entry.title}</p>
                 <p className="leading-tight text-sm text-gray-600">
@@ -158,37 +162,40 @@ export default function Home() {
 
       </section>
 
-      <Heading title="What Our Customers Say?" />
-      <Description title="Real feedback from businesses that trust our products." />
+      <section className="bg-white-100 py-8 my-8">
 
-      <section style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1em", padding: "0em 2em", width: "70%", margin: "0 auto", }}>
-        {
-          testimonials.map((testimonial, id) => {
-            return (
-              <div key={id} style={{ border: "1px solid goldenrod", padding: "1em", borderRadius: "1em", display: "flex", flexWrap: "wrap", justifyContent: "space-between", }}>
-                <p className="font-bold">{testimonial.name}</p>
-                <p style={{ display: "inline-block", fontSize: "1em", color: "goldenrod", borderRadius: "50%", marginBottom: "0.5em", }}>{"★".repeat(5)}</p>
-                <p className="leading-tight text-sm text-gray-600">{testimonial.comment}</p>
-              </div>
-            )
-          })
-        }
+        <Heading title="What Our Customers Say?" />
+        <Description title="Real feedback from businesses that trust our products." />
+
+        <section style={{ width: "80%", margin: "0 auto", display: "flex", justifyContent: "space-between", flexWrap: "wrap", gap: "1em", }}>
+          {
+            testimonials.map((testimonial, id) => {
+              return (
+                <div key={id} style={{ border: "1px solid goldenrod", padding: "1em", borderRadius: "1em", flex: "1 1 300px", }}>
+                  <p className="font-bold">{testimonial.name}</p>
+                  <p style={{ display: "inline-block", fontSize: "1em", color: "goldenrod", borderRadius: "50%", marginBottom: "0.5em", }}>{"★".repeat(5)}</p>
+                  <p className="leading-tight text-sm text-gray-600">{testimonial.comment}</p>
+                </div>
+              )
+            })
+          }
+        </section>
+
       </section>
-
 
       <section className="bg-gray-100 my-8 pb-8" >
         <Heading title="Ready to Experience Farm Fresh Quality?" />
         <Description title="Join hundreds of satisfied customers who trust us for their premium poultry needs." />
 
         <div className="flex justify-center">
-          <button className="p-4 mr-2 border border-yellow-500 rounded-2xl" style={{ backgroundColor: "goldenrod", color: "whitesmoke" }}>Shop Now</button>
-          <button className="p-4 ml-2 border border-yellow-500 rounded-2xl" style={{ backgroundColor: "goldenrod", color: "whitesmoke" }}>Become a Vendor</button>
+          <button className="px-4 py-2 mr-2 border border-yellow-500 rounded-2xl hover:bg-yellow-500 hover:text-white hover:cursor-pointer">Shop Now</button>
+          <button className="px-4 py-2 ml-2 border border-yellow-500 rounded-2xl hover:bg-yellow-500 hover:text-white hover:cursor-pointer">Become a Vendor</button>
         </div>
 
       </section>
 
       <section style={{ backgroundColor: "black", color: "whitesmoke", }}>
-        <section style={{ display: "flex", justifyContent: "space-evenly", padding: "1em 2em", }}>
+        <section style={{ display: "flex", justifyContent: "space-evenly", padding: "1em 2em", flexWrap: "wrap", gap: "1em", }}>
           <p>📞 Call us: +91 874512 12458</p>
           <p>📧 Email: contact@vintagepoultry.com</p>
           <p>🕒 Mon-Fri: 7:00 AM - 6:00 PM</p>

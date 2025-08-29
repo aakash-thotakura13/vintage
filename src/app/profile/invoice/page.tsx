@@ -18,6 +18,38 @@ const invoices = [
     paidAmount: 574.24,
     deliveryStatus: "In Transit",
   },
+  {
+    invoiceNumber: "INV-001-2024",
+    orderNumber: "ORD-001",
+    date: "2024-01-15",
+    billedAmount: 649.50,
+    paidAmount: 649.50,
+    deliveryStatus: "Delivered",
+  },
+  {
+    invoiceNumber: "INV-002-2024",
+    orderNumber: "ORD-002",
+    date: "2024-01-22",
+    billedAmount: 574.25,
+    paidAmount: 574.24,
+    deliveryStatus: "In Transit",
+  },
+  {
+    invoiceNumber: "INV-001-2024",
+    orderNumber: "ORD-001",
+    date: "2024-01-15",
+    billedAmount: 649.50,
+    paidAmount: 649.50,
+    deliveryStatus: "Delivered",
+  },
+  {
+    invoiceNumber: "INV-002-2024",
+    orderNumber: "ORD-002",
+    date: "2024-01-22",
+    billedAmount: 574.25,
+    paidAmount: 574.24,
+    deliveryStatus: "In Transit",
+  },
 ]
 
 export default function InvoicePage() {
@@ -26,11 +58,11 @@ export default function InvoicePage() {
       <Heading title="Invoice Management" />
       <Description title="Download and manage your invoices for tax and accounting purposes." />
 
-      <section style={{ display: "flex", flexWrap: "wrap", gap: "1em", justifyContent: "space-around", }}>
+      <section style={{ width: "90%", margin: "1em auto", display: "flex", flexWrap: "wrap", gap: "1em", justifyContent: "space-around", }}>
         {
           invoices.map((invoice, id) => {
             return (
-              <section key={id} style={{ border: "1px solid lightgrey", borderRadius: "1em", padding: "1em", flex: "1 1 0" }}>
+              <section key={id} style={{ border: "1px solid lightgrey", borderRadius: "1em", padding: "1em", flex: "1 1 350px" }}>
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", }}>
                   <h1>{invoice.invoiceNumber}</h1>
                   <>{invoice.billedAmount - invoice.paidAmount === 0
