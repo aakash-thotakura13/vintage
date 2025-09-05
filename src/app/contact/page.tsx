@@ -1,7 +1,49 @@
 
+import { Metadata } from "next";
 import Description from "../components/Description"
 import Heading from "../components/Heading"
 import ContactPageForm from "../components/reusable/ContactPageForm"
+
+// app/contact/page.tsx
+
+export const metadata: Metadata = {
+  title: "Contact Us | VintagePoultry",
+  description:
+    "Get in touch with VintagePoultry for orders, vendor partnerships, or general inquiries. Reach out via phone, email, or our contact form.",
+  keywords: [
+    "contact VintagePoultry",
+    "poultry delivery support",
+    "become a vendor",
+    "bulk poultry orders",
+    "farm contact info",
+    "organic chicken supplier"
+  ],
+  openGraph: {
+    title: "Contact Us | VintagePoultry",
+    description:
+      "Questions? Need support or want to become a vendor? Contact VintagePoultry — we're here to help.",
+    url: "https://yourdomain.com/contact",
+    siteName: "VintagePoultry",
+    images: [
+      {
+        url: "https://res.cloudinary.com/ddgmru7d1/image/upload/v1756299859/chicken_01_dll8od.jpg",
+        width: 800,
+        height: 600,
+        alt: "Contact VintagePoultry",
+      },
+    ],
+    locale: "en_IN",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Reach Out to VintagePoultry",
+    description:
+      "Have questions or feedback? Fill out our form or contact us via phone or email — we respond within 24 hours.",
+    images: ["https://res.cloudinary.com/ddgmru7d1/image/upload/v1756299859/chicken_01_dll8od.jpg"],
+  },
+};
+
 
 const contactInfo = [
   {

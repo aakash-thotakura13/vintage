@@ -1,6 +1,47 @@
 
 import Heading from "../components/Heading";
 import Description from "../components/Description";
+import { Metadata } from "next";
+
+// app/about/page.tsx
+export const metadata: Metadata = {
+  title: "About Us | VintagePoultry",
+  description:
+    "Learn about VintagePoultry’s story, ethical farming practices, USDA-certified quality standards, and our journey from a small family farm to a trusted poultry provider.",
+  keywords: [
+    "about VintagePoultry",
+    "ethical poultry farming",
+    "organic chicken farm",
+    "usda certified poultry",
+    "sustainable agriculture",
+    "vintage poultry story"
+  ],
+  openGraph: {
+    title: "About Us | VintagePoultry",
+    description:
+      "Discover our legacy of organic farming, premium poultry, and sustainable practices. A family-run business since 1995.",
+    url: "https://yourdomain.com/about",
+    siteName: "VintagePoultry",
+    images: [
+      {
+        url: "https://res.cloudinary.com/ddgmru7d1/image/upload/v1756299859/chicken_01_dll8od.jpg",
+        width: 800,
+        height: 600,
+        alt: "Our farm-raised chicken",
+      },
+    ],
+    locale: "en_IN",
+    type: "article",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "About VintagePoultry | Premium Poultry Since 1995",
+    description:
+      "Meet the people and principles behind VintagePoultry — a trusted name in organic, ethically raised poultry.",
+    images: ["https://res.cloudinary.com/ddgmru7d1/image/upload/v1756299859/chicken_01_dll8od.jpg"],
+  },
+};
+
 
 const farmingPractices = [
   {
