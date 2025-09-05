@@ -103,9 +103,9 @@ export default function AboutPage() {
   return (
     <section>
 
-      <section style={{ display: "flex", justifyContent: "space-around", flexWrap: "wrap", gap: "1em", width: "80%", margin: "0 auto", padding: "1em 0em" }}>
+      <section style={{ display: "flex", justifyContent: "space-around", alignItems: "center", flexWrap: "wrap", gap: "1em", width: "85%", margin: "2em auto", }}>
 
-        <section style={{ flex: "1 0 350px" }}>
+        <section style={{ flex: "1 1 350px" }}>
           <Heading title="Our Story" />
           <p className="py-2">Founded in 1995 by the Johnson family, FreshPoultry began as a small family farm with a simple mission: to raise healthy, happy poultry using traditional farming methods combined with modern sustainability practices.</p>
           <p className="py-2">Over the years, we have grown from a local farm stand to a trusted supplier of premium poultry products, serving hundreds of families and businesses across the region while maintaining our commitment to quality and ethics.</p>
@@ -124,12 +124,15 @@ export default function AboutPage() {
           </div>
         </section>
 
-        <img
-          style={{ flex: "1 0 350px", objectFit: "cover", borderRadius: "1em", minWidth: "350px", height: "auto", }}
-          src="https://res.cloudinary.com/ddgmru7d1/image/upload/v1756299859/chicken_01_dll8od.jpg"
-          alt="chicken_one"
-        // className=" rounded-3xl shadow-2xl mt-12 w-full h-auto"
-        />
+        <section style={{ flex: "1 1 350px" }}>
+          <img
+            style={{ borderRadius: "1em", height: "auto", boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px" }}
+            src="https://res.cloudinary.com/ddgmru7d1/image/upload/v1756299859/chicken_01_dll8od.jpg"
+            alt="chicken_one"
+          // className=" rounded-3xl shadow-2xl mt-12 w-full h-auto"
+          />
+        </section>
+
       </section>
 
       <section className="bg-gray-100 py-8 my-8" >
@@ -137,10 +140,10 @@ export default function AboutPage() {
         <Heading title="Our Journey" />
         <Description title="Key milestones in our farming legacy" />
 
-        <section style={{ display: "flex", justifyContent: "space-around", flexWrap: "wrap", gap: "1em", width: "65%", margin: "0 auto", padding: "1em 0em" }}>
+        <section style={{ display: "flex", justifyContent: "space-around", flexWrap: "wrap", gap: "1em", width: "57%", margin: "2em auto", minWidth: "350px", }}>
           {
             timeline.map((entry, id) => (
-              <div key={id} style={{ border: "1px solid lightgrey", padding: "1em", borderRadius: "1em", backgroundColor: "white", flex: "1 0 350px", }}>
+              <div key={id} style={{ border: "1px solid lightgrey", padding: "1em", borderRadius: "1em", backgroundColor: "white", flex: "1 1 350px", }}>
                 <p className="font-bold text-yellow-500">{entry.year}</p>
                 <small>{entry.event}</small>
               </div>
@@ -155,7 +158,7 @@ export default function AboutPage() {
         <Heading title="Our Farming Practices" />
         <Description title="We believe in ethical farming that respects both animals and the environment, ensuring the highest quality products for our customers." />
 
-        <section style={{ display: "flex", justifyContent: "space-around", flexWrap: "wrap", gap: "1em", width: "80%", margin: "0 auto", padding: "1em 0em" }}>
+        <section style={{ display: "flex", justifyContent: "space-around", flexWrap: "wrap", gap: "1em", width: "80%", margin: "2em auto", minWidth: "350px", }}>
           {
             farmingPractices.map((entry, id) => (
               <div key={id} style={{ border: "1px solid goldenrod", padding: "1em", borderRadius: "1em", flex: "1 1 250px", alignItems: "center", }}>
@@ -176,7 +179,7 @@ export default function AboutPage() {
         <Heading title="Quality Standards" />
         <Description title="Every product that leaves our farm meets the highest standards of quality, safety, and freshness through rigorous testing and monitoring." />
 
-        <section style={{ display: "flex", justifyContent: "space-around", flexWrap: "wrap", gap: "1em", width: "80%", margin: "0 auto", padding: "1em 0em" }}>
+        <section style={{ display: "flex", justifyContent: "space-around", flexWrap: "wrap", gap: "1em", width: "80%", margin: "2em auto", minWidth: "350px", }}>
           {
             qualityStandards.map((testimonial, id) => {
               return (

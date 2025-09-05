@@ -130,7 +130,8 @@ export default function Home() {
 
   return (
     <div>
-      <section style={{ display: "flex", justifyContent: "space-around", flexWrap: "wrap", gap: "1em", width: "80%", margin: "0 auto", }}>
+
+      <section style={{ display: "flex", justifyContent: "space-around", flexWrap: "wrap", gap: "1em", width: "80%", minWidth: "350px", margin: "0 auto", }}>
         <section style={{ flex: "1 1 0", padding: "5em", backgroundColor: "gold", }}></section>
         <Image src="https://res.cloudinary.com/ddgmru7d1/image/upload/v1756299859/chicken_01_dll8od.jpg" alt="chicken_one" className="object-cover rounded-3xl shadow-2xl" width={450} height={450} style={{ flex: "0 0 300px", }} />
       </section>
@@ -139,7 +140,7 @@ export default function Home() {
         <section style={{ width: "70%", margin: "0 auto", display: "flex", justifyContent: "space-around", flexWrap: "wrap", gap: "1em", }}>
           {
             firstBar.map((entry, id) => (
-              <div key={id} className="text-center" style={{ flex: "1 1 0", }}>
+              <div key={id} className="text-center" style={{ flex: "1 1 120px", }}>
                 <h2 className="text-3xl font-bold text-yellow-500">{entry.top}</h2>
                 <p className="text-sm">{entry.bottom}</p>
               </div>
@@ -153,7 +154,7 @@ export default function Home() {
         <Heading title="Featured Products" />
         <Description title="Discover our most popular farm-fresh products, carefully selected for quality and taste!" />
 
-        <section style={{ width: "80%", margin: "0 auto", display: "flex", justifyContent: "space-between", flexWrap: "wrap", gap: "1em", }}>
+        <section style={{ width: "80%", margin: "0 auto", display: "flex", justifyContent: "space-between", flexWrap: "wrap", gap: "1em", minWidth: "350px" }}>
           {
             featuredProducts.map((entry) => (
               <ProductCard
@@ -184,11 +185,11 @@ export default function Home() {
         <Heading title="What Our Customers Say?" />
         <Description title="Real feedback from businesses that trust our products." />
 
-        <section style={{ width: "80%", margin: "0 auto", display: "flex", justifyContent: "space-between", flexWrap: "wrap", gap: "1em", }}>
+        <section style={{ width: "80%", margin: "0 auto", display: "flex", justifyContent: "space-between", flexWrap: "wrap", gap: "1em", minWidth: "350px" }}>
           {
             testimonials.map((testimonial, id) => {
               return (
-                <div key={id} style={{ border: "1px solid goldenrod", padding: "1em", borderRadius: "1em", flex: "1 1 300px", }}>
+                <div key={id} style={{ border: "1px solid goldenrod", padding: "1em", borderRadius: "1em", flex: "1 1 350px", }}>
                   <p className="font-bold">{testimonial.name}</p>
                   <p style={{ display: "inline-block", fontSize: "1em", color: "goldenrod", borderRadius: "50%", marginBottom: "0.5em", }}>{"★".repeat(5)}</p>
                   <p className="leading-tight text-sm text-gray-600">{testimonial.comment}</p>

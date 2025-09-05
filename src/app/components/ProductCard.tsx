@@ -13,7 +13,7 @@ export default function ProductCard(
   { name, price, description, badge, image, }: ProductCardProps
 ) {
   return (
-    <section className="relative rounded-xl border border-yellow-500 overflow-hidden" style={{ flex: "1 1 350px", }} >
+    <section className="relative rounded-xl border border-yellow-500 overflow-hidden" style={{ flex: "1 1 350px", minWidth: "350px" }} >
       <small className="absolute top-2 right-2 bg-yellow-500 text-white text-sm font-bold rounded-full px-2 py-1">{badge}</small>
 
       <img

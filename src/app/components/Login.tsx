@@ -24,8 +24,8 @@ export default function Login() {
   };
 
   return (
-    <section style={{ maxWidth: "65%", margin: "2em auto", boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px", padding: "1em", borderRadius: "1em", }}>
-      <p className="text-2xl pb-4 text-center">Login to Your Account</p>
+    <section style={{ width: "25%", minWidth: "350px", margin: "2em auto", boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px", padding: "1em", borderRadius: "1em", }}>
+      <p className="text-2xl pb-2 text-center">Login to Your Account</p>
       <Description title="Enter your details to access your Vendor dashboard." />
 
       <form onSubmit={handleSubmit}>

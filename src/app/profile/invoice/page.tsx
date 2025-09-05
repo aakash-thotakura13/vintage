@@ -58,11 +58,11 @@ export default function InvoicePage() {
       <Heading title="Invoice Management" />
       <Description title="Download and manage your invoices for tax and accounting purposes." />
 
-      <section style={{ width: "90%", margin: "1em auto", display: "flex", flexWrap: "wrap", gap: "1em", justifyContent: "space-around", }}>
+      <section style={{ width: "57%", minWidth: "350px", margin: "1em auto", display: "flex", flexWrap: "wrap", gap: "1em", justifyContent: "space-around", }}>
         {
           invoices.map((invoice, id) => {
             return (
-              <section key={id} style={{ border: "1px solid lightgrey", borderRadius: "1em", padding: "1em", flex: "1 1 350px" }}>
+              <section key={id} style={{ border: "1px solid lightgrey", borderRadius: "1em", padding: "1em", flex: "1 1 350px", minWidth: "350px", }}>
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", }}>
                   <h1>{invoice.invoiceNumber}</h1>
                   <>{invoice.billedAmount - invoice.paidAmount === 0

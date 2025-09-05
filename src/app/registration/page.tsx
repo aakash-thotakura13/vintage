@@ -41,59 +41,20 @@ export default function VendorRegistration() {
   }
 
   return (
-    <section
-      style={{
+    <section style={{ margin: "2em auto", boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px", padding: "1em", borderRadius: "1em", }}>
+      <p className="text-2xl pb-4" style={{ textAlign: "center" }}>Business Information</p>
 
-        margin: "2em auto",
-        boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
-        padding: "1em",
-        borderRadius: "1em",
-      }}
-    >
-      <p className="text-2xl pb-4">Business Information</p>
-
-      <form onSubmit={handleSubmit} style={{ display: "flex", flexWrap: "wrap", gap: "1em", maxWidth: "65%", margin: "0 auto", }}>
+      <form onSubmit={handleSubmit} style={{ display: "flex", flexWrap: "wrap", gap: "1em", width: "50%", margin: "0 auto", minWidth: "340px", }}>
         {/* First Row */}
-        <Input
-          label="Business Name *"
-          name="businessName"
-          value={formData.businessName}
-          onChange={handleChange}
-          placeholder="Enter your Business Name"
-        />
-        <Input
-          label="Contact Person *"
-          name="contactPersonName"
-          value={formData.contactPersonName}
-          onChange={handleChange}
-          placeholder="Enter contact person name"
-        />
+        <Input label="Business Name *" name="businessName" value={formData.businessName} onChange={handleChange} placeholder="Enter your Business Name" />
+        <Input label="Contact Person *" name="contactPersonName" value={formData.contactPersonName} onChange={handleChange} placeholder="Enter contact person name" />
+        <Input label="Email Address *" name="emailAddress" value={formData.emailAddress} onChange={handleChange} placeholder="Enter business email" />
 
-        <Input
-          label="Email Address *"
-          name="emailAddress"
-          value={formData.emailAddress}
-          onChange={handleChange}
-          placeholder="Enter business email"
-        />
 
         <div style={{ display: "grid", flex: "1 1 350px", }}>
           <label htmlFor="businessType">Inquiry Type</label>
-          <select
-            name="businessType"
-            id="businessType"
-            value={formData.businessType}
-            onChange={handleChange}
-            style={{
-              border: "1px solid lightgrey",
-              borderRadius: "0.5em",
-              padding: "0.25em 0.5em",
-              margin: "0.2em 0em",
-            }}
-          >
-            <option value="" disabled hidden>
-              Select Business Type
-            </option>
+          <select name="businessType" id="businessType" value={formData.businessType} onChange={handleChange} style={{ border: "1px solid lightgrey", borderRadius: "0.5em", padding: "0.25em 0.5em", margin: "0.2em 0em", }}>
+            <option value="" disabled hidden>Select Business Type</option>
             <option value="restaurant">Restaurant</option>
             <option value="retailer">Retailer</option>
             <option value="wholesaler">Wholesaler</option>
@@ -102,66 +63,21 @@ export default function VendorRegistration() {
           </select>
         </div>
 
-        <Input
-          label="City"
-          name="city"
-          value={formData.city}
-          onChange={handleChange}
-          placeholder="Enter City"
-        />
+        <Input label="City" name="city" value={formData.city} onChange={handleChange} placeholder="Enter City" />
 
-        <Input
-          label="State"
-          name="state"
-          value={formData.state}
-          onChange={handleChange}
-          placeholder="Enter State"
-        />
+        <Input label="State" name="state" value={formData.state} onChange={handleChange} placeholder="Enter State" />
 
-        <Input
-          label="Zip Code"
-          name="zipCode"
-          value={formData.zipCode}
-          onChange={handleChange}
-          placeholder="Enter Zip Code"
-        />
+        <Input label="Zip Code" name="zipCode" value={formData.zipCode} onChange={handleChange} placeholder="Enter Zip Code" />
 
-        <Input
-          label="Business Address *"
-          name="businessAddress"
-          value={formData.businessAddress}
-          onChange={handleChange}
-          placeholder="Enter business address"
-        />
+        <Input label="Business Address *" name="businessAddress" value={formData.businessAddress} onChange={handleChange} placeholder="Enter business address" />
 
         <div style={{ display: "grid", margin: "1em 0em", flex: "1 1 500px" }}>
           <label htmlFor="businessDescription">Business Description</label>
-          <textarea
-            name="businessDescription"
-            id="businessDescription"
-            cols={30}
-            rows={5}
-            value={formData.businessDescription}
-            onChange={handleChange}
-            placeholder="Describe your business"
-            style={{
-              border: "1px solid lightgrey",
-              borderRadius: "0.5em",
-              padding: "0.25em 0.5em",
-              margin: "0.2em 0em",
-            }}
-          ></textarea>
+          <textarea name="businessDescription" id="businessDescription" cols={30} rows={5} value={formData.businessDescription} onChange={handleChange} placeholder="Describe your business" style={{ border: "1px solid lightgrey", borderRadius: "0.5em", padding: "0.25em 0.5em", margin: "0.2em 0em", }}></textarea>
         </div>
 
         <div style={{ flex: "1 1 500px", }}>
-          <input
-            type="checkbox"
-            name="termsAndConditions"
-            id="termsAndConditions"
-            checked={formData.termsAndConditions}
-            onChange={handleChange}
-            style={{ marginRight: "1em", marginTop: "0.25em" }}
-          />
+          <input type="checkbox" name="termsAndConditions" id="termsAndConditions" checked={formData.termsAndConditions} onChange={handleChange} style={{ marginRight: "1em", marginTop: "0.25em" }} />
           <label htmlFor="termsAndConditions">
             I agree to the Terms & Conditions <br />
             By checking this box, you agree to our vendor Terms, Conditions and
