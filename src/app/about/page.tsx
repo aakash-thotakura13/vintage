@@ -96,10 +96,10 @@ export default function AboutPage() {
         <Heading title="Our Journey" />
         <Description title="Key milestones in our farming legacy" />
 
-        <section style={{ display: "flex", justifyContent: "space-around", flexWrap: "wrap", gap: "1em", width: "80%", margin: "0 auto", padding: "1em 0em" }}>
+        <section style={{ display: "flex", justifyContent: "space-around", flexWrap: "wrap", gap: "1em", width: "65%", margin: "0 auto", padding: "1em 0em" }}>
           {
             timeline.map((entry, id) => (
-              <div key={id} style={{ border: "1px solid lightgrey", padding: "1em", borderRadius: "1em", backgroundColor: "white", flex: "1 1 250px", }}>
+              <div key={id} style={{ border: "1px solid lightgrey", padding: "1em", borderRadius: "1em", backgroundColor: "white", flex: "1 0 350px", }}>
                 <p className="font-bold text-yellow-500">{entry.year}</p>
                 <small>{entry.event}</small>
               </div>

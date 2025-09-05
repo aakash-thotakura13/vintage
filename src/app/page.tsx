@@ -1,10 +1,9 @@
 import Image from "next/image";
 
-
-
 import Heading from "./components/Heading";
 import Description from "./components/Description";
 import ProductCard from "./components/ProductCard";
+import IconCard from "./components/IconCard";
 
 export default function Home() {
 
@@ -146,19 +145,7 @@ export default function Home() {
         <Heading title="Why Choose VintagePoultry?" />
         <Description title="We're committed to providing the highest quality products with exceptional service." />
 
-        <section style={{ width: "80%", margin: "0 auto", display: "flex", justifyContent: "space-between", flexWrap: "wrap", gap: "1em", }}>
-          {
-            features.map((entry, id) => (
-              <div key={id} style={{ textAlign: "center", border: "1px solid goldenrod", padding: "1em", borderRadius: "1em", flex: "1 1 300px", }}>
-                <p style={{ display: "inline-block", fontSize: "2em", backgroundColor: "goldenrod", borderRadius: "50%", marginBottom: "0.5em", }}>{entry.icon}</p>
-                <p className="font-bold">{entry.title}</p>
-                <p className="leading-tight text-sm text-gray-600">
-                  {entry.description}
-                </p>
-              </div>
-            ))
-          }
-        </section>
+        <IconCard iconsArray={features} />
 
       </section>
 

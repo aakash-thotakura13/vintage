@@ -51,7 +51,6 @@ const frequentlyAskedQuestions = [
 ];
 
 
-
 export default function ContactPage() {
 
   return (
