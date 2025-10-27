@@ -19,10 +19,37 @@ export default function ContactPageForm() {
     }));
   }
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
-    console.log("Submitted data:", formData);
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await res.json();
+
+      if (result.success) {
+        alert("✅ Message sent successfully!");
+        setFormData({
+          fullName: "",
+          emailAdd: "",
+          phoneNumber: "",
+          inquiryType: "",
+          subject: "",
+          message: "",
+        });
+      } else {
+        alert("❌ Failed to send message.");
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      alert("❌ Something went wrong.");
+    }
   }
+
 
   return (
     <form onSubmit={handleSubmit} style={{ boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px", padding: "1em", borderRadius: "1em", }}>

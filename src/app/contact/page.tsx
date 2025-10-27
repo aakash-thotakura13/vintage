@@ -49,25 +49,21 @@ const contactInfo = [
     icon: "📍",
     title: "Farm Address",
     details: ["123 Farm Road", "Rural Valley, RV 12345"],
-    color: "text-gold"
   },
   {
     icon: "📞",
     title: "Phone Numbers",
     details: ["Main: +1 (555) 123-4567", "Orders: +1 (555) 123-4568"],
-    color: "text-gold"
   },
   {
     icon: "📧",
     title: "Email Addresses",
     details: ["General: contact@freshpoultry.com", "Orders: orders@freshpoultry.com"],
-    color: "text-gold"
   },
   {
     icon: "🕒",
     title: "Business Hours",
     details: ["Mon-Fri: 7:00 AM - 6:00 PM", "Sat-Sun: 8:00 AM - 4:00 PM"],
-    color: "text-gold"
   }
 ];
 
@@ -94,37 +90,42 @@ const frequentlyAskedQuestions = [
 export default function ContactPage() {
 
   return (
+    
     <section>
 
-      <section style={{ display: "flex", justifyContent: "space-around", flexWrap: "wrap", gap: "1em", width: "80%", minWidth: "350px", margin: "1em auto", }}>
+      <section style={{ display: "flex", justifyContent: "space-around", flexWrap: "wrap", gap: "1em", maxWidth: "1200px", minWidth: "350px", margin: "2em auto", padding: "0em 0.5em", }}>
 
         <section style={{ flex: "1 1 350px", margin: "2em 0em", }}>
           <p className="text-2xl">Send us a Message</p>
-          <p>Fill out the form below and we will get back to you within 24 hours.</p>
+          <p style={{ marginBottom: "1em", }}>Fill out the form below and we will get back to you within 24 hours.</p>
 
-          {/* A CONTACT FORM WILL BE DISPLAYED HERE <br /> Working in progress... */}
           <ContactPageForm />
         </section>
 
-        <section style={{ flex: "1 1 350px" }}>
+        <section style={{ flex: "1 1 350px", margin: "2em auto", borderRadius: "1em", }}>
           <Heading title="Get in Touch" />
           <Description title="Whether you have questions about our products, want to become a vendor partner, or need support with your order, we're here to help." />
 
-          <section style={{ display: "grid", gap: "1em", margin: "0em auto", }}>
-            {
-              contactInfo.map((entry, id) => (
-                <div key={id} style={{ display: "flex", alignItems: "center", border: "1px solid lightgrey", padding: "1em", borderRadius: "1em", }}>
-                  <p style={{ aspectRatio: "1/1", display: "inline-block", fontSize: "1.5em", marginRight: "1em", }}>{entry.icon}</p>
-                  <div>
-                    <p className="font-bold text-yellow-700">{entry.title}</p>
-                    <div className="leading-tight text-sm text-gray-600">
-                      {entry.details.map((entry, id) => <p key={id}>{entry}</p>)}
-                    </div>
-                  </div>
-                </div>
-              ))
-            }
-          </section>
+          <div style={{ backgroundColor: "#ffd70022", padding: "0.5em", borderRadius: "1em" }}>
+
+            <section style={{ display: "grid", gap: "1em", margin: "0em auto", }}>
+              {
+                contactInfo.map((entry, id) => (
+                  <section key={id} style={{ display: "flex", alignItems: "center", border: "1px solid lightgrey", padding: "1em", borderRadius: "1em", }}>
+                    <p style={{ aspectRatio: "1/1", display: "inline-block", fontSize: "1.5em", marginRight: "1em", }}>{entry.icon}</p>
+                    <section>
+                      <p className="font-bold text-yellow-700">{entry.title}</p>
+                      <div className="leading-tight text-sm text-gray-600">
+                        {entry.details.map((entry, id) => <p key={id}>{entry}</p>)}
+                      </div>
+                    </section>
+                  </section>
+                ))
+              }
+            </section>
+
+          </div>
+
         </section>
 
       </section>
@@ -134,10 +135,10 @@ export default function ContactPage() {
         <Heading title="Frequently Asked Questions" />
         <Description title="Find quick answers to common questions about our products and services." />
 
-        <section style={{ display: "flex", justifyContent: "space-around", flexWrap: "wrap", gap: "1em", width: "80%", minWidth: "350px", margin: "1em auto", }}>
+        <section style={{ display: "flex", justifyContent: "space-around", flexWrap: "wrap", gap: "1em", maxWidth: "1200px", minWidth: "350px", margin: "2em auto", padding: "0em 0.5em", }}>
           {
             frequentlyAskedQuestions.map((entry, id) => (
-              <div key={id} style={{ border: "1px solid lightgrey", padding: "0.5em 1em", borderRadius: "1em", backgroundColor: "white", flex: "1 0 250px", }}>
+              <div key={id} style={{ border: "1px solid lightgrey", padding: "1em", borderRadius: "1em", backgroundColor: "white", flex: "1 1 280px", }}>
                 <p className="font-bold pb-4">{entry.question}</p>
                 <p className="leading-tight text-sm text-gray-600">{entry.answer}</p>
               </div>

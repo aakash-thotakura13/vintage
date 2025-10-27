@@ -26,8 +26,12 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <UserProvider>
 
           <Header />
+
           <main>{children}</main>
+
           <Footer />
+
+          <p className="text-center py-1">© 2024 VintagePoultry. All rights reserved.</p>
 
         </UserProvider>
       </body>

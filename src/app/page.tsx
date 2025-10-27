@@ -60,7 +60,7 @@ export default function Home() {
     {
       id: 1,
       name: "Free-Range Chicken",
-      price: "₹1,199/kg",
+      price: "₹ 1,199/kg",
       description: "Premium quality free-range chicken raised on organic feed",
       badge: "Bestseller",
       image: "https://res.cloudinary.com/ddgmru7d1/image/upload/v1756299859/chicken_01_dll8od.jpg"
@@ -68,15 +68,15 @@ export default function Home() {
     {
       id: 2,
       name: "Farm Fresh Eggs",
-      price: "₹449/kg",
+      price: "₹ 449/kg",
       description: "Grade A fresh eggs from pasture-raised hens",
       badge: "Fresh Daily",
-      image: "https://res.cloudinary.com/ddgmru7d1/image/upload/v1756299859/chicken_01_dll8od.jpg"
+      image: "https://res.cloudinary.com/ddgmru7d1/image/upload/v1757494577/2825573728_bf0c703dd0_b_uwwapm.jpg"
     },
     {
       id: 3,
       name: "Organic Turkey",
-      price: "₹799/kg",
+      price: "₹ 799/kg",
       description: "Antibiotic-free turkey with rich, natural flavor",
       badge: "Organic",
       image: "https://res.cloudinary.com/ddgmru7d1/image/upload/v1756299859/eggs_01_synqzx.jpg"
@@ -129,15 +129,17 @@ export default function Home() {
 
 
   return (
-    <div>
+    <section style={{}}>
 
-      <section style={{ display: "flex", justifyContent: "space-around", flexWrap: "wrap", gap: "1em", width: "80%", minWidth: "350px", margin: "0 auto", }}>
-        <section style={{ flex: "1 1 0", padding: "5em", backgroundColor: "gold", }}></section>
-        <Image src="https://res.cloudinary.com/ddgmru7d1/image/upload/v1756299859/chicken_01_dll8od.jpg" alt="chicken_one" className="object-cover rounded-3xl shadow-2xl" width={450} height={450} style={{ flex: "0 0 300px", }} />
-      </section>
+      <div style={{ maxWidth: "1200px", minWidth: "350px", margin: "2em auto", padding: "0em 0.5em", }}>
+        <div style={{ display: "flex", justifyContent: "space-around", flexWrap: "wrap", gap: "1em", }}>
+          <section style={{ flex: "1 1 350px", padding: "5em", backgroundColor: "gold", }} className="object-cover rounded-3xl shadow-2xl"></section>
+          <Image src="https://res.cloudinary.com/ddgmru7d1/image/upload/v1756299859/chicken_01_dll8od.jpg" alt="chicken_one" className="object-cover rounded-3xl shadow-2xl" width={450} height={450} style={{ flex: "1 1 300px", }} />
+        </div>
+      </div>
 
       <section className="bg-gray-100 py-8 my-8">
-        <section style={{ width: "70%", margin: "0 auto", display: "flex", justifyContent: "space-around", flexWrap: "wrap", gap: "1em", }}>
+        <section style={{ maxWidth: "1200px", minWidth: "350px", margin: "2em auto", padding: "0em 0.5em", display: "flex", justifyContent: "space-around", flexWrap: "wrap", gap: "1em", }}>
           {
             firstBar.map((entry, id) => (
               <div key={id} className="text-center" style={{ flex: "1 1 120px", }}>
@@ -154,7 +156,7 @@ export default function Home() {
         <Heading title="Featured Products" />
         <Description title="Discover our most popular farm-fresh products, carefully selected for quality and taste!" />
 
-        <section style={{ width: "80%", margin: "0 auto", display: "flex", justifyContent: "space-between", flexWrap: "wrap", gap: "1em", minWidth: "350px" }}>
+        <section style={{ maxWidth: "1200px", minWidth: "350px", margin: "2em auto", padding: "0em 0.5em", display: "flex", justifyContent: "space-between", flexWrap: "wrap", gap: "1em", }}>
           {
             featuredProducts.map((entry) => (
               <ProductCard
@@ -185,7 +187,7 @@ export default function Home() {
         <Heading title="What Our Customers Say?" />
         <Description title="Real feedback from businesses that trust our products." />
 
-        <section style={{ width: "80%", margin: "0 auto", display: "flex", justifyContent: "space-between", flexWrap: "wrap", gap: "1em", minWidth: "350px" }}>
+        <section style={{ maxWidth: "1200px", minWidth: "350px", margin: "2em auto", padding: "0em 0.5em", display: "flex", justifyContent: "space-between", flexWrap: "wrap", gap: "1em", }}>
           {
             testimonials.map((testimonial, id) => {
               return (
@@ -201,7 +203,7 @@ export default function Home() {
 
       </section>
 
-      <section className="bg-gray-100 my-8 pb-8" >
+      <section className="bg-gray-100 py-8 my-8" >
         <Heading title="Ready to Experience Farm Fresh Quality?" />
         <Description title="Join hundreds of satisfied customers who trust us for their premium poultry needs." />
 
@@ -213,13 +215,15 @@ export default function Home() {
       </section>
 
       <section style={{ backgroundColor: "black", color: "whitesmoke", }}>
-        <section style={{ display: "flex", justifyContent: "space-evenly", padding: "1em 2em", flexWrap: "wrap", gap: "1em", }}>
+        <section style={{ maxWidth: "1200px", minWidth: "350px", margin: "0em auto", display: "flex", justifyContent: "space-between", padding: "1em 0em", flexWrap: "wrap", }}>
           <p>📞 Call us: +91 874512 12458</p>
           <p>📧 Email: contact@vintagepoultry.com</p>
           <p>🕒 Mon-Fri: 7:00 AM - 6:00 PM</p>
         </section>
       </section>
 
-    </div>
+      <hr style={{color:"white"}} />
+
+    </section>
   );
 }

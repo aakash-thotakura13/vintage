@@ -1,5 +1,9 @@
-import Description from "@/app/components/Description";
+"use client";
+import { useEffect, useState } from "react";
 import Heading from "@/app/components/Heading";
+import Description from "@/app/components/Description";
+import { useCart } from "@/app/context/CartContext";
+import { useUser } from "@/app/context/UserContext";
 
 const invoices = [
   {
@@ -53,12 +57,99 @@ const invoices = [
 ]
 
 export default function InvoicePage() {
+
+  const [loading, setLoading] = useState(true);
+
+  const { user, setUser } = useUser();
+
+  type OrderItem = {
+    productName: string;
+    quantity: number;
+    price: number;
+  };
+
+  type Order = {
+    _id: string;
+    items: OrderItem[];
+    totalAmount: number;
+    status: string;
+    orderDate: string;
+    createdAt?: string;
+    updatedAt?: string;
+  };
+
+  type Vendor = {
+    _id: string;
+    businessAddress: string;
+    businessDescription: string;
+    businessName: string;
+    businessType: string;
+    city: string;
+    contactPersonName: string;
+    createdAt: string;
+    emailAddress: string;
+    orders: Order[]; // ✅ array of Order objects
+    password: string;
+    pinCode: string;
+    state: string;
+    termsAndConditions: boolean;
+    updatedAt: Date;
+    username: string;
+  };
+
+  const [vendorData, setVendorData] = useState<Vendor | null>(null);
+
+  useEffect(() => {
+
+    if (!user?.username) return;
+
+    const username = user.username;
+
+    async function fetchVendor() {
+      const res = await fetch(`/api/vendor/${username}`);
+      const data = await res.json();
+      if (data.success) setVendorData(data.vendor);
+    }
+
+    fetchVendor();
+  }, [user]);
+
+  if (!vendorData) return <p>Loading...</p>;
+
+  vendorData.orders.forEach(order => {
+    console.log(order.items);
+  });
+
+
   return (
     <section>
       <Heading title="Invoice Management" />
       <Description title="Download and manage your invoices for tax and accounting purposes." />
 
-      <section style={{ width: "57%", minWidth: "350px", margin: "1em auto", display: "flex", flexWrap: "wrap", gap: "1em", justifyContent: "space-around", }}>
+      <section style={{ maxWidth: "1200px", minWidth: "350px", margin: "0em auto 1em", padding: "0em", display: "flex", flexWrap: "wrap", gap: "1em", justifyContent: "space-around", }}>
+        {
+          vendorData.orders.map((order, id) => {
+            return (
+              <section key={id} style={{ border: "1px solid lightgrey", borderRadius: "1em", padding: "1em", flex: "1 1 350px", minWidth: "350px", }}>
+                {/* <h2>Order ID: {order._id}</h2> */}
+                <p>Order Date: {new Date(order.orderDate).toLocaleDateString()}</p>
+                <p>Total Amount: ₹ {order.totalAmount.toFixed(2)}</p>
+                <p>Status: {order.status}</p>
+                {/* <h3>Items:</h3> */}
+                {/* <ul>
+                  {order.items.map((item, index) => (
+                    <li key={index}>
+                      {item.productName} - Quantity: {item.quantity} - Price: ₹ {item.price.toFixed(2)}
+                    </li>
+                  ))}
+                </ul> */}
+              </section>
+            )
+          })
+        }
+      </section>
+
+      <section style={{ maxWidth: "1200px", minWidth: "350px", margin: "0em auto", padding: "0em", display: "flex", flexWrap: "wrap", gap: "1em", justifyContent: "space-around", }}>
         {
           invoices.map((invoice, id) => {
             return (

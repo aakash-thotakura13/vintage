@@ -11,9 +11,9 @@ export default function ProfilePage() {
   if (!user) return <Login />;
 
   return (
-    <div>
+    <section>
       {/* <h2>Welcome to your profile dashboard!</h2> */}
-    </div>
+    </section>
   );
 
 }

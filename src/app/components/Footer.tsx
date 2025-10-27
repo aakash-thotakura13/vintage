@@ -24,33 +24,36 @@ const footerRoutes = [
 ]
 export default function Footer() {
   return (
-    <footer>
-      <section style={{ width: "80%", margin: "1.5em auto", display: "flex", justifyContent: "space-around", gap: "2em", flexWrap: "wrap", }}>
+    <footer style={{ backgroundColor: "black", color: "whitesmoke", }}>
+      <section style={{ maxWidth: "1200px", minWidth: "350px", margin: "0 auto", padding: "1em 0.5em", }}>
 
-        <div style={{ flex: "1 1 250px", padding: "0.5em 1em", }}>
-          <h3 className="font-bold text-yellow-500">VintagePoultry</h3>
-          <p>Premium quality poultry products delivered fresh from our farm to your table.</p>
+        <div style={{ display: "flex", justifyContent: "space-between", gap: "2em", flexWrap: "wrap", alignItems: "flex-start", }}>
+
+          <div style={{ flex: "1 1 350px", }}>
+            <h3 className="font-bold text-yellow-500">VintagePoultry</h3>
+            <p>Premium quality poultry products delivered fresh from our farm to your table.</p>
+          </div>
+
+          <div style={{ flex: "1 1 350px", }}>
+            <h3 className="font-bold text-yellow-500">Quick Links</h3>
+            {
+              footerRoutes.map((entry, id) => <Link href={entry.path} key={id} style={{ display: "block", }}>{entry.title} </Link>)
+            }
+          </div>
+
+          <div style={{ flex: "1 1 350px", }}>
+            <h3 className="font-bold text-yellow-500">Contact Us</h3>
+            <address>
+              <p>123 Vintage Poultry Lane</p>
+              <p>Kothegudem, Palvoncha</p>
+              <p>(123) 456-7890</p>
+              <p>contact@vintagePoultry.com</p>
+            </address>
+          </div>
+
         </div>
 
-        <div style={{ flex: "1 1 250px", padding: "0.5em 1em", }}>
-          <h3 className="font-bold text-yellow-500">Quick Links</h3>
-          {
-            footerRoutes.map((entry, id) => <Link href={entry.path} key={id} style={{ display: "block", }}>{entry.title} </Link>)
-          }
-        </div>
-
-        <div style={{ flex: "1 1 250px", padding: "0.5em 1em", }}>
-          <h3 className="font-bold text-yellow-500">Contact Us</h3>
-          <address>
-            <p>123 Vintage Poultry Lane</p>
-            <p>Kothegudem, Palvoncha</p>
-            <p>(123) 456-7890</p>
-            <p>contact@vintagePoultry.com</p>
-          </address>
-        </div>
       </section>
-
-      <p className="text-center py-8 border-t-2 border-gray-300">© 2024 VintagePoultry. All rights reserved.</p>
 
     </footer>
   )

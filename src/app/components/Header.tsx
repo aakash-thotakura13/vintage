@@ -4,6 +4,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 
+import logo from "../logo.jpeg";
+
 const navLinks = [
   { title: "Home", path: "/" },
   { title: "About", path: "/about" },
@@ -20,13 +22,14 @@ export default function Header() {
   const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
 
   return (
-    <header style={{ position: "sticky", top: 0, backgroundColor: "white" }}>
+    <header style={{ position: "sticky", top: 0, backgroundColor: "white", }}>
 
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "0.5em 1em" }}>
+      <section style={{ maxWidth: "1200px", minWidth: "350px", margin: "0 auto", display: "flex", justifyContent: "space-between", alignItems: "center", padding: "0.5em 1em" }}>
 
-        <div>
-          <h1>VintagePoultry</h1>
-        </div>
+        <section>
+          {/* <h1>VintagePoultry</h1> */}
+          <img src={logo.src} alt="logo" style={{ width: "50px", height: "50px", borderRadius: "50%", boxShadow: "rgba(0, 0, 0, 0.5) 0px 3px 8px" }} />
+        </section> 
 
         <nav className="hidden md:flex space-x-4">
           {navLinks.map(({ title, path }) => (
@@ -49,7 +52,7 @@ export default function Header() {
           ☰
         </button>
 
-      </div>
+      </section>
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (

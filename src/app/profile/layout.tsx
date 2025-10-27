@@ -1,9 +1,10 @@
 "use client";
 
 import { ReactNode } from "react";
-import { useUser } from "../context/UserContext";
+import { UserProvider, useUser } from "../context/UserContext";
 import VendorDashboard from "../components/VendorDashboard";
 import Login from "../components/Login";
+import { CartProvider } from "../context/CartContext";
 
 export default function ProfileLayout({ children }: { children: ReactNode }) {
   const { user } = useUser();
@@ -11,11 +12,10 @@ export default function ProfileLayout({ children }: { children: ReactNode }) {
   if (!user) return <Login />;
 
   return (
-    <div>
+    <CartProvider>
       <VendorDashboard />
-      <main>
-        {children}
-      </main>
-    </div>
+      <hr style={{ borderBottom: "2px solid goldenrod", }} />
+      {children}
+    </CartProvider>
   );
 }

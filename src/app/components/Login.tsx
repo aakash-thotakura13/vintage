@@ -12,19 +12,45 @@ export default function Login() {
   const { setUser } = useUser();
   const router = useRouter();
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    console.log(username, password,);
-    if (username === "admin" && password === "admin") {
-      setUser({ username });
+
+    try {
+      const res = await fetch("/api/vendor/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username, password }),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok || !data.success) {
+        alert(data.message || "Invalid credentials.");
+        return;
+      }
+
+      // ✅ Login successful — store basic user first
+      setUser(data.user);
+
+      // ✅ Fetch full vendor info using username
+      const fullRes = await fetch(`/api/vendor/${data.user.username}`);
+      const fullData = await fullRes.json();
+
+      if (fullRes.ok && fullData.success) {
+        setUser(fullData.vendor);
+      }
+
       router.push("/profile/orders");
-    } else {
-      alert("Invalid credentials.");
+    } catch (error) {
+      console.error("Login error:", error);
+      alert("An error occurred while logging in.");
     }
   };
 
+
   return (
     <section style={{ width: "25%", minWidth: "350px", margin: "2em auto", boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px", padding: "1em", borderRadius: "1em", }}>
+
       <p className="text-2xl pb-2 text-center">Login to Your Account</p>
       <Description title="Enter your details to access your Vendor dashboard." />
 
@@ -41,7 +67,7 @@ export default function Login() {
         <div style={{ display: "grid", margin: "1em 0em" }}>
           <label htmlFor="password">Password *</label>
           <input
-            type="text" id="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Enter State"
+            type="password" id="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Enter State"
             style={{ border: "1px solid lightgrey", borderRadius: "0.5em", padding: "0.25em 0.5em", margin: "0.2em 0em" }}
           />
         </div>
@@ -52,4 +78,4 @@ export default function Login() {
 
     </section>
   )
-}
+};
