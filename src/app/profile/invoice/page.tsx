@@ -2,102 +2,14 @@
 import { useEffect, useState } from "react";
 import Heading from "@/app/components/Heading";
 import Description from "@/app/components/Description";
-import { useCart } from "@/app/context/CartContext";
 import { useUser } from "@/app/context/UserContext";
+import { Vendor } from "@/types/Types"
 
-const invoices = [
-  {
-    invoiceNumber: "INV-001-2024",
-    orderNumber: "ORD-001",
-    date: "2024-01-15",
-    billedAmount: 649.50,
-    paidAmount: 649.50,
-    deliveryStatus: "Delivered",
-  },
-  {
-    invoiceNumber: "INV-002-2024",
-    orderNumber: "ORD-002",
-    date: "2024-01-22",
-    billedAmount: 574.25,
-    paidAmount: 574.24,
-    deliveryStatus: "In Transit",
-  },
-  {
-    invoiceNumber: "INV-001-2024",
-    orderNumber: "ORD-001",
-    date: "2024-01-15",
-    billedAmount: 649.50,
-    paidAmount: 649.50,
-    deliveryStatus: "Delivered",
-  },
-  {
-    invoiceNumber: "INV-002-2024",
-    orderNumber: "ORD-002",
-    date: "2024-01-22",
-    billedAmount: 574.25,
-    paidAmount: 574.24,
-    deliveryStatus: "In Transit",
-  },
-  {
-    invoiceNumber: "INV-001-2024",
-    orderNumber: "ORD-001",
-    date: "2024-01-15",
-    billedAmount: 649.50,
-    paidAmount: 649.50,
-    deliveryStatus: "Delivered",
-  },
-  {
-    invoiceNumber: "INV-002-2024",
-    orderNumber: "ORD-002",
-    date: "2024-01-22",
-    billedAmount: 574.25,
-    paidAmount: 574.24,
-    deliveryStatus: "In Transit",
-  },
-]
 
 export default function InvoicePage() {
 
-  const [loading, setLoading] = useState(true);
-
-  const { user, setUser } = useUser();
-
-  type OrderItem = {
-    productName: string;
-    quantity: number;
-    price: number;
-  };
-
-  type Order = {
-    _id: string;
-    items: OrderItem[];
-    totalAmount: number;
-    status: string;
-    orderDate: string;
-    createdAt?: string;
-    updatedAt?: string;
-  };
-
-  type Vendor = {
-    _id: string;
-    businessAddress: string;
-    businessDescription: string;
-    businessName: string;
-    businessType: string;
-    city: string;
-    contactPersonName: string;
-    createdAt: string;
-    emailAddress: string;
-    orders: Order[]; // ✅ array of Order objects
-    password: string;
-    pinCode: string;
-    state: string;
-    termsAndConditions: boolean;
-    updatedAt: Date;
-    username: string;
-  };
-
   const [vendorData, setVendorData] = useState<Vendor | null>(null);
+  const { user, setUser } = useUser();
 
   useEffect(() => {
 
@@ -121,55 +33,112 @@ export default function InvoicePage() {
   });
 
 
+  const getStatusStyles = (status: string) => {
+    switch (status.toLowerCase()) {
+      case "pending":
+        return { bg: "#fbbf24", text: "#1f2937" }; // yellow bg + dark gray text
+      case "processing":
+        return { bg: "#3b82f6", text: "#ffffff" };
+      case "shipped":
+        return { bg: "#6366f1", text: "#ffffff" };
+      case "delivered":
+        return { bg: "#22c55e", text: "#ffffff" };
+      case "cancelled":
+        return { bg: "#ef4444", text: "#ffffff" };
+      default:
+        return { bg: "#6b7280", text: "#ffffff" };
+    }
+  };
+
+
+
+
   return (
     <section>
       <Heading title="Invoice Management" />
       <Description title="Download and manage your invoices for tax and accounting purposes." />
 
-      <section style={{ maxWidth: "1200px", minWidth: "350px", margin: "0em auto 1em", padding: "0em", display: "flex", flexWrap: "wrap", gap: "1em", justifyContent: "space-around", }}>
-        {
-          vendorData.orders.map((order, id) => {
-            return (
-              <section key={id} style={{ border: "1px solid lightgrey", borderRadius: "1em", padding: "1em", flex: "1 1 350px", minWidth: "350px", }}>
-                {/* <h2>Order ID: {order._id}</h2> */}
-                <p>Order Date: {new Date(order.orderDate).toLocaleDateString()}</p>
-                <p>Total Amount: ₹ {order.totalAmount.toFixed(2)}</p>
-                <p>Status: {order.status}</p>
-                {/* <h3>Items:</h3> */}
-                {/* <ul>
-                  {order.items.map((item, index) => (
-                    <li key={index}>
-                      {item.productName} - Quantity: {item.quantity} - Price: ₹ {item.price.toFixed(2)}
-                    </li>
-                  ))}
-                </ul> */}
-              </section>
-            )
-          })
-        }
+
+      <section
+        style={{
+          maxWidth: "1200px",
+          margin: "0 auto",
+          padding: "1em",
+          display: "flex",
+          flexWrap: "wrap",
+          gap: "1em",
+          justifyContent: "center",
+        }}
+      >
+        {vendorData.orders.map((order, id) => {
+          const { bg, text } = getStatusStyles(order.status);
+
+
+          return (
+            <section
+              key={id}
+              style={{
+                border: "1px solid #e5e7eb",
+                borderRadius: "1em",
+                padding: "1.2em",
+                flex: "1 1 350px",
+                minWidth: "350px",
+                maxWidth: "380px",
+                background: "#ffffff",
+                boxShadow: "0 2px 6px rgba(0,0,0,0.05)",
+              }}
+            >
+              <div style={{ marginBottom: "0.5em" }}>
+                <p style={{ fontSize: "0.9em", color: "#6b7280" }}>
+                  Order Date:
+                </p>
+                <p style={{ fontWeight: "600" }}>
+                  {new Date(order.orderDate).toLocaleDateString()}
+                </p>
+              </div>
+
+              <p style={{ margin: "0.3em 0", fontSize: "1em" }}>
+                <strong>Total Amount:</strong>{" "}
+                <span style={{ color: "#111827" }}>
+                  ₹ {order.totalAmount.toFixed(2)}
+                </span>
+              </p>
+
+              <p style={{ margin: "0.3em 0", display: "flex", alignItems: "center" }}>
+                <strong>Status:</strong>
+                <span
+                  style={{
+                    background: bg,
+                    color: text,
+                    padding: "0.2em 0.7em",
+                    borderRadius: "1em",
+                    marginLeft: "0.5em",
+                    fontSize: "0.85em",
+                    fontWeight: "600",
+                  }}
+                >
+                  {order.status}
+                </span>
+              </p>
+
+              <h3 style={{ marginTop: "1em", fontSize: "1.1em" }}>Products:</h3>
+              <ul style={{ paddingLeft: "1.2em", marginTop: "0.5em" }}>
+                {order.items.map((item, index) => (
+                  <li key={index} style={{ marginBottom: "0.4em" }}>
+                    <span style={{ fontWeight: 500 }}>{item.productName}</span>{" "}
+                    <br />
+                    <span style={{ color: "#6b7280", fontSize: "0.9em" }}>
+                      Qty: {item.quantity}
+                      &nbsp;•&nbsp; Price: ₹ {item.price.toFixed(2)}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          );
+        })}
       </section>
 
-      <section style={{ maxWidth: "1200px", minWidth: "350px", margin: "0em auto", padding: "0em", display: "flex", flexWrap: "wrap", gap: "1em", justifyContent: "space-around", }}>
-        {
-          invoices.map((invoice, id) => {
-            return (
-              <section key={id} style={{ border: "1px solid lightgrey", borderRadius: "1em", padding: "1em", flex: "1 1 350px", minWidth: "350px", }}>
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", }}>
-                  <h1>{invoice.invoiceNumber}</h1>
-                  <>{invoice.billedAmount - invoice.paidAmount === 0
-                    ? <small style={{ fontWeight: "500", backgroundColor: "#00FF0044", textShadow: "0px 0px 10px #00FF00", borderRadius: "0.5em", padding: "0.25em 0.5em" }}>Paid</small>
-                    : <small style={{ fontWeight: "500", backgroundColor: "#FFFF0044", textShadow: "0px 0px 10px #FFFF00", borderRadius: "0.5em", padding: "0.25em 0.5em" }}>Pending</small>}</>
-                </div>
-                <h2>{invoice.orderNumber}</h2>
-                <p>Date: {invoice.date}</p>
-                <p>Amount: {invoice.billedAmount}</p>
-                <p>Status: {invoice.deliveryStatus}</p>
-                <button style={{ backgroundColor: "goldenrod", color: "white", padding: "0.5em 1em", borderRadius: "0.5em" }}>Download PDF</button>
-              </section>
-            )
-          })
-        }
-      </section>
 
     </section>
   )
