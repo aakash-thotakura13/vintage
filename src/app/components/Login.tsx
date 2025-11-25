@@ -16,16 +16,23 @@ export default function Login() {
     e.preventDefault();
 
     try {
-      const res = await fetch("/api/vendor/login", {
+      const response = await fetch("/api/vendor/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username, password }),
       });
 
-      const data = await res.json();
+      const data = await response.json();
 
-      if (!res.ok || !data.success) {
+      if (!response.ok || !data.success) {
         alert(data.message || "Invalid credentials.");
+        return;
+      };
+
+      // if ADMIN → do NOT fetch vendor details
+      if (data.role === "admin") {
+        setUser({ username: "admin", role: "admin" });
+        router.push("/profile/admin");
         return;
       }
 
@@ -38,9 +45,9 @@ export default function Login() {
 
       if (fullRes.ok && fullData.success) {
         setUser(fullData.vendor);
+        router.push("/profile/orders");
       }
 
-      router.push("/profile/orders");
     } catch (error) {
       console.error("Login error:", error);
       alert("An error occurred while logging in.");
@@ -72,7 +79,7 @@ export default function Login() {
           />
         </div>
 
-        <button type="submit" className=" px-4 py-2 rounded-xl border-2 border-yellow-600 hover:bg-yellow-600 hover:cursor-pointer">Login</button>
+        <button type="submit" className="px-4 py-2 rounded-xl border-2 border-yellow-600 hover:bg-yellow-600 hover:cursor-pointer">Login</button>
 
       </form>
 
