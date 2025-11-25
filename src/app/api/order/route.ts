@@ -36,3 +36,16 @@ export async function POST(req: Request) {
     );
   }
 }
+
+export async function GET(req: Request) {
+  try {
+    const allOrders = await Order.find({}).populate("vendor");
+    return NextResponse.json({ success: true, orders: allOrders });
+  } catch (error) {
+    console.error("Error fetching orders:", error);
+    return NextResponse.json(
+      { success: false, error: "Failed to fetch orders" },
+      { status: 500 }
+    );
+  }
+}
