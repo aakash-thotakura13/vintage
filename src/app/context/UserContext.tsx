@@ -1,39 +1,27 @@
 "use client";
 import { createContext, useContext, useState, ReactNode } from "react";
+import { User } from "@/types/Types"
 
-export type Vendor = {
-  _id: string;
-  username: string;
-  businessName: string;
-  emailAddress: string;
-  contactPersonName?: string;
-  businessAddress?: string;
-  city?: string;
-  state?: string;
-  zipCode?: string;
-  businessType?: string;
-  businessDescription?: string;
-  orders?: string[];
-  // any other fields in Vendor schema
-};
 
 type UserContextType = {
-  user: Vendor | null;
-  setUser: (user: Vendor) => void;
+  user: User | null;
+  setUser: (user: User) => void;
   refreshUser: () => Promise<void>; // fetch full vendor info
 };
 
 const UserContext = createContext<UserContextType | undefined>(undefined);
 
 export function UserProvider({ children }: { children: ReactNode }) {
-  const [user, setUser] = useState<Vendor | null>(null);
+  const [user, setUser] = useState<User | null>(null);
 
   // Fetch full user info from API
   const refreshUser = async () => {
-    if (!user?.username) return;
+    if (!user?.username || user.role === "admin") return;
+
     try {
       const res = await fetch(`/api/vendor/${user.username}`);
       const data = await res.json();
+
       if (data.success) {
         setUser(data.vendor);
       }
