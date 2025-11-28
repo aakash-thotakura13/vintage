@@ -76,27 +76,29 @@ export default function AdminPage() {
 
   async function updateOrderStatus(orderId: string, newStatus: string) {
     try {
-
-      const response = await fetch(`/api/order/${orderId}`, {
+      const res = await fetch(`/api/order/${orderId}`, {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ status: newStatus }),
       });
 
-      const data = await response.json();
+      const data = await res.json();
 
       if (data.success) {
+        // update local state
         setOrders(prev =>
-          prev.map(order => order._id === orderId ? { ...order, status: newStatus } : order)
+          prev.map(order =>
+            order._id === orderId ? { ...order, status: newStatus } : order
+          )
         );
       } else {
-        console.error("Failed to update order status:", data.error);
+        console.error("Failed to update:", data.message);
       }
-
     } catch (error) {
       console.error("Error:", error);
     }
   }
+
 
   return (
     <div className="p-6 space-y-6">
@@ -137,7 +139,7 @@ export default function AdminPage() {
         <select
           className="border p-2 rounded-lg"
           value={sortKey}
-          onChange={(e) => setSortKey(e.target.value as any)}
+          onChange={(e) => setSortKey(e.target.value as "date" | "amount")}
         >
           <option value="date">Sort by Date</option>
           <option value="amount">Sort by Amount</option>
@@ -146,7 +148,7 @@ export default function AdminPage() {
         <select
           className="border p-2 rounded-lg"
           value={sortOrder}
-          onChange={(e) => setSortOrder(e.target.value as any)}
+          onChange={(e) => setSortOrder(e.target.value as "asc" | "desc")}
         >
           <option value="asc">Ascending</option>
           <option value="desc">Descending</option>
