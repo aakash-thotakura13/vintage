@@ -1,11 +1,14 @@
+import { NextResponse } from "next/server";
 import { connectToDatabase } from "@/lib/mongodb";
 import Order from "@/models/Order";
-import { NextResponse } from "next/server";
 
 export async function PATCH(
   req: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
+  // ⬅️ IMPORTANT: params is a Promise in Next.js 15+
+  const { id } = await params;
+
   try {
     await connectToDatabase();
 
@@ -19,7 +22,7 @@ export async function PATCH(
     }
 
     const updatedOrder = await Order.findByIdAndUpdate(
-      params.id,
+      id,
       { status },
       { new: true }
     );
@@ -32,8 +35,8 @@ export async function PATCH(
     }
 
     return NextResponse.json({ success: true, order: updatedOrder });
-
   } catch (error) {
+    console.error("Error updating order:", error);
     return NextResponse.json(
       { success: false, message: "Failed to update order" },
       { status: 500 }
