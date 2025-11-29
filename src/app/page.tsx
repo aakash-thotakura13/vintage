@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import { Metadata } from 'next';
 
@@ -5,128 +6,105 @@ import Heading from "./components/Heading";
 import Description from "./components/Description";
 import ProductCard from "./components/ProductCard";
 import IconCard from "./components/IconCard";
+import { useRouter } from "next/navigation"
 
-export const metadata: Metadata = {
-  title: 'VintagePoultry | Premium Poultry Delivered Fresh',
-  description: 'Discover farm-fresh poultry, organic eggs, and premium meats delivered with unmatched quality and speed. Trusted by 500+ happy customers.',
-  keywords: ['organic chicken', 'farm fresh eggs', 'premium poultry', 'poultry delivery India', 'pasture raised', 'vintage poultry'],
-  openGraph: {
-    title: 'VintagePoultry | Premium Poultry Delivered Fresh',
-    description: 'Join over 500 happy customers who trust VintagePoultry for high-quality, farm-fresh poultry and eggs.',
-    url: 'https://yourdomain.com/',
-    siteName: 'VintagePoultry',
-    images: [
-      {
-        url: 'https://res.cloudinary.com/ddgmru7d1/image/upload/v1756299859/chicken_01_dll8od.jpg',
-        width: 800,
-        height: 600,
-        alt: 'Free-range chicken from VintagePoultry',
-      },
-    ],
-    locale: 'en_IN',
-    type: 'website',
+
+
+const firstBar = [
+  {
+    top: "500+",
+    bottom: "Happy Customers",
   },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'VintagePoultry | Premium Poultry Delivered Fresh',
-    description: 'Organic, antibiotic-free poultry and eggs — fresh from our farms to your doorstep.',
-    images: ['https://res.cloudinary.com/ddgmru7d1/image/upload/v1756299859/chicken_01_dll8od.jpg'],
+  {
+    top: "10+",
+    bottom: "Years Experience",
   },
-};
+  {
+    top: "50+",
+    bottom: "Vendor Partners",
+  },
+  {
+    top: "99%",
+    bottom: "Quality Rating",
+  },
+];
+
+const featuredProducts = [
+  {
+    id: 1,
+    name: "Free-Range Chicken",
+    price: "₹ 1,199/kg",
+    description: "Premium quality free-range chicken raised on organic feed",
+    badge: "Bestseller",
+    image: "https://res.cloudinary.com/ddgmru7d1/image/upload/v1756299859/chicken_01_dll8od.jpg"
+  },
+  {
+    id: 2,
+    name: "Farm Fresh Eggs",
+    price: "₹ 449/kg",
+    description: "Grade A fresh eggs from pasture-raised hens",
+    badge: "Fresh Daily",
+    image: "https://res.cloudinary.com/ddgmru7d1/image/upload/v1757494577/2825573728_bf0c703dd0_b_uwwapm.jpg"
+  },
+  {
+    id: 3,
+    name: "Organic Turkey",
+    price: "₹ 799/kg",
+    description: "Antibiotic-free turkey with rich, natural flavor",
+    badge: "Organic",
+    image: "https://res.cloudinary.com/ddgmru7d1/image/upload/v1756299859/eggs_01_synqzx.jpg"
+  }
+];
+
+const features = [
+  {
+    icon: "🌱",
+    title: "Farm Fresh Quality",
+    description: "All our products come directly from our certified organic farm"
+  },
+  {
+    icon: "🚚",
+    title: "Fast Delivery",
+    description: "Same-day delivery available for orders placed before 2 PM"
+  },
+  {
+    icon: "🏆",
+    title: "Premium Standards",
+    description: "Highest quality standards with complete traceability"
+  },
+  {
+    icon: "💰",
+    title: "Best Prices",
+    description: "Competitive pricing with bulk discounts for vendors"
+  }
+];
+
+const testimonials = [
+  {
+    name: "Sarah Johnson",
+    business: "Johnson's Diner",
+    rating: 5,
+    comment: "Best quality poultry products we've ever used. Our customers always compliment the taste!"
+  },
+  {
+    name: "Mike Chen",
+    business: "Chen's Market",
+    rating: 5,
+    comment: "Reliable delivery and exceptional freshness. Perfect for our retail business."
+  },
+  {
+    name: "Lisa Rodriguez",
+    business: "Rodriguez Catering",
+    rating: 5,
+    comment: "Outstanding service and premium quality. They never disappoint for our events."
+  }
+];
+
 
 
 export default function Home() {
 
-  const firstBar = [
-    {
-      top: "500+",
-      bottom: "Happy Customers",
-    },
-    {
-      top: "10+",
-      bottom: "Years Experience",
-    },
-    {
-      top: "50+",
-      bottom: "Vendor Partners",
-    },
-    {
-      top: "99%",
-      bottom: "Quality Rating",
-    },
-  ];
-
-  const featuredProducts = [
-    {
-      id: 1,
-      name: "Free-Range Chicken",
-      price: "₹ 1,199/kg",
-      description: "Premium quality free-range chicken raised on organic feed",
-      badge: "Bestseller",
-      image: "https://res.cloudinary.com/ddgmru7d1/image/upload/v1756299859/chicken_01_dll8od.jpg"
-    },
-    {
-      id: 2,
-      name: "Farm Fresh Eggs",
-      price: "₹ 449/kg",
-      description: "Grade A fresh eggs from pasture-raised hens",
-      badge: "Fresh Daily",
-      image: "https://res.cloudinary.com/ddgmru7d1/image/upload/v1757494577/2825573728_bf0c703dd0_b_uwwapm.jpg"
-    },
-    {
-      id: 3,
-      name: "Organic Turkey",
-      price: "₹ 799/kg",
-      description: "Antibiotic-free turkey with rich, natural flavor",
-      badge: "Organic",
-      image: "https://res.cloudinary.com/ddgmru7d1/image/upload/v1756299859/eggs_01_synqzx.jpg"
-    }
-  ];
-
-  const features = [
-    {
-      icon: "🌱",
-      title: "Farm Fresh Quality",
-      description: "All our products come directly from our certified organic farm"
-    },
-    {
-      icon: "🚚",
-      title: "Fast Delivery",
-      description: "Same-day delivery available for orders placed before 2 PM"
-    },
-    {
-      icon: "🏆",
-      title: "Premium Standards",
-      description: "Highest quality standards with complete traceability"
-    },
-    {
-      icon: "💰",
-      title: "Best Prices",
-      description: "Competitive pricing with bulk discounts for vendors"
-    }
-  ];
-
-  const testimonials = [
-    {
-      name: "Sarah Johnson",
-      business: "Johnson's Diner",
-      rating: 5,
-      comment: "Best quality poultry products we've ever used. Our customers always compliment the taste!"
-    },
-    {
-      name: "Mike Chen",
-      business: "Chen's Market",
-      rating: 5,
-      comment: "Reliable delivery and exceptional freshness. Perfect for our retail business."
-    },
-    {
-      name: "Lisa Rodriguez",
-      business: "Rodriguez Catering",
-      rating: 5,
-      comment: "Outstanding service and premium quality. They never disappoint for our events."
-    }
-  ];
-
+  const router = useRouter();
 
   return (
     <section style={{}}>
@@ -208,8 +186,18 @@ export default function Home() {
         <Description title="Join hundreds of satisfied customers who trust us for their premium poultry needs." />
 
         <div className="flex justify-center">
-          <button className="px-4 py-2 mr-2 border border-yellow-500 rounded-2xl hover:bg-yellow-500 hover:text-white hover:cursor-pointer">Shop Now</button>
-          <button className="px-4 py-2 ml-2 border border-yellow-500 rounded-2xl hover:bg-yellow-500 hover:text-white hover:cursor-pointer">Become a Vendor</button>
+          <button
+            className="px-4 py-2 mr-2 border border-yellow-500 rounded-2xl hover:bg-yellow-500 hover:text-white hover:cursor-pointer"
+            onClick={() => router.push("/shop")}
+          >
+            Shop Now
+          </button>
+          <button
+            className="px-4 py-2 ml-2 border border-yellow-500 rounded-2xl hover:bg-yellow-500 hover:text-white hover:cursor-pointer"
+            onClick={() => router.push("/shop")}
+          >
+            Become a Vendor
+          </button>
         </div>
 
       </section>
@@ -222,7 +210,7 @@ export default function Home() {
         </section>
       </section>
 
-      <hr style={{color:"white"}} />
+      <hr style={{ color: "white" }} />
 
     </section>
   );

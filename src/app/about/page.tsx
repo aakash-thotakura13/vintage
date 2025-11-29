@@ -7,7 +7,7 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "About Us | VintagePoultry",
   description:
-    "Learn about VintagePoultry’s story, ethical farming practices, USDA-certified quality standards, and our journey from a small family farm to a trusted poultry provider.",
+    "Learn about VintagePoultry's story, ethical farming practices, USDA-certified quality standards, and our journey from a small family farm to a trusted poultry provider.",
   keywords: [
     "about VintagePoultry",
     "ethical poultry farming",
@@ -42,7 +42,6 @@ export const metadata: Metadata = {
   },
 };
 
-
 const farmingPractices = [
   {
     title: "Free-Range Environment",
@@ -68,24 +67,24 @@ const farmingPractices = [
 
 const qualityStandards = [
   {
-    title: "USDA Certified",
-    description: "All products meet or exceed USDA organic certification standards",
-    badge: "Certified"
+    title: "Farm-Fresh Sourcing",
+    description: "All poultry is sourced directly from healthy, well-maintained farms with strict hygiene practices.",
+    badge: "Farm Fresh",
   },
   {
     title: "Regular Testing",
     description: "Frequent quality checks ensure product safety and freshness",
-    badge: "Tested"
+    badge: "Tested",
   },
   {
-    title: "Cold Chain Management",
-    description: "Temperature-controlled storage and transportation maintain product integrity",
-    badge: "Fresh"
+    title: "Hygienic Handling",
+    description: "From careful processing to gentle handling, every step is designed to keep your poultry naturally fresh and wholesome.",
+    badge: "Handled Right",
   },
   {
     title: "Traceability",
     description: "Complete farm-to-table tracking for every product we deliver",
-    badge: "Tracked"
+    badge: "Tracked",
   }
 ];
 
