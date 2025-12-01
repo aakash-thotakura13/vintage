@@ -123,37 +123,38 @@ export default function AboutPage() {
           <div className="flex-1 min-w-[320px]">
             <Heading title="Our Story" />
             <p className="py-2">
-              Vintage Poultry was founded in 2021 with a simple yet powerful mission: 
-              to raise healthy, happy poultry using a blend of traditional farming 
-              methods and modern sustainability practices. What started as a small, 
-              family-owned farm soon became a trusted source for premium poultry 
+              Vintage Poultry was founded in 2021 with a simple yet powerful mission:
+              to raise healthy, happy poultry using a blend of traditional farming
+              methods and modern sustainability practices. What started as a small,
+              family-owned farm soon became a trusted source for premium poultry
               products in our local community, built on the values of quality, care,
-              and ethical farming. For two generations, our farm grew steadily, 
-              focusing on providing fresh, flavorful poultry to families and businesses 
+              and ethical farming. For two generations, our farm grew steadily,
+              focusing on providing fresh, flavorful poultry to families and businesses
               who valued quality and integrity.
             </p>
 
             <p className="py-2">
-              In 2023, we saw an exciting opportunity to expand beyond the local 
-              community. We took our commitment to quality and customer service 
-              online, making it easier than ever for people to enjoy fresh, 
+              In 2023, we saw an exciting opportunity to expand beyond the local
+              community. We took our commitment to quality and customer service
+              online, making it easier than ever for people to enjoy fresh,
               farm-raised chicken delivered right to their door.
             </p>
 
             <p className="py-2">
-              Embracing the digital age has allowed us to serve more people, 
-              while staying true to the core values that have guided us for nearly 
-              three decades: animal welfare, environmental care, and the highest 
-              standards of customer satisfaction. 
-              Today, Vintage Poultry is more than just a farm; it's a growing 
+              Embracing the digital age has allowed us to serve more people,
+              while staying true to the core values that have guided us for nearly
+              three decades: animal welfare, environmental care, and the highest
+              standards of customer satisfaction.
+              Today, Vintage Poultry is more than just a farm; it&apos;s a growing
               community of people who care about the food they eat and where it
               comes from.
             </p>
 
             <p className="py-2">
-              From our family to yours, we're here to put a "kick" on your plate with 
-              poultry that's as fresh and flavorful as it gets.
+              From our family to yours, we&apos;re here to put a &quot;kick&quot; on your plate with
+              poultry that&apos;s as fresh and flavorful as it gets.
             </p>
+
 
             <div className="flex gap-4 mt-3">
               {["Family Owned", "Est. 1995", "Organic Certified"].map(
