@@ -15,13 +15,15 @@ const footerRoutes = [
   },
   {
     title: "Vendor Portal",
-    path: "/",
+    path: "/profile",
   },
   {
     title: "Order Tracking",
-    path: "/",
+    path: "/profile",
   },
-]
+];
+
+
 export default function Footer() {
   return (
     <footer style={{ backgroundColor: "black", color: "whitesmoke", }}>
@@ -44,10 +46,11 @@ export default function Footer() {
           <div style={{ flex: "1 1 350px", }}>
             <h3 className="font-bold text-yellow-500">Contact Us</h3>
             <address>
-              <p>123 Vintage Poultry Lane</p>
-              <p>Kothegudem, Palvoncha</p>
-              <p>(123) 456-7890</p>
-              <p>contact@vintagePoultry.com</p>
+              <p><strong>Address: </strong>Vintage Poultry</p>
+              <p>5-5-11, Gandi Nagar, Silk Campus,</p>
+              <p>Palvancha, 507115</p>
+              <p><strong>Mobile: </strong>+91 7893912177</p>
+              <p><strong>Email: </strong>nizam.vintage1@gmail.com</p>
             </address>
           </div>
 
