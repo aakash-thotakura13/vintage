@@ -1,13 +1,11 @@
 "use client";
 import Image from "next/image";
-import { Metadata } from 'next';
+import { useRouter } from "next/navigation";
 
 import Heading from "./components/Heading";
 import Description from "./components/Description";
 import ProductCard from "./components/ProductCard";
 import IconCard from "./components/IconCard";
-import { useRouter } from "next/navigation"
-
 
 
 const firstBar = [
@@ -32,8 +30,8 @@ const firstBar = [
 const featuredProducts = [
   {
     id: 1,
-    name: "Free-Range Chicken",
-    price: "₹ 1,199/kg",
+    name: "Pasture-Range Chicken",
+    price: "₹ 650/kg",
     description: "Premium quality free-range chicken raised on organic feed",
     badge: "Bestseller",
     image: "https://res.cloudinary.com/ddgmru7d1/image/upload/v1756299859/chicken_01_dll8od.jpg"
@@ -41,15 +39,15 @@ const featuredProducts = [
   {
     id: 2,
     name: "Farm Fresh Eggs",
-    price: "₹ 449/kg",
+    price: "₹ 20/piece",
     description: "Grade A fresh eggs from pasture-raised hens",
     badge: "Fresh Daily",
     image: "https://res.cloudinary.com/ddgmru7d1/image/upload/v1757494577/2825573728_bf0c703dd0_b_uwwapm.jpg"
   },
   {
     id: 3,
-    name: "Organic Turkey",
-    price: "₹ 799/kg",
+    name: "Lemons",
+    price: "₹ 5/piece",
     description: "Antibiotic-free turkey with rich, natural flavor",
     badge: "Organic",
     image: "https://res.cloudinary.com/ddgmru7d1/image/upload/v1756299859/eggs_01_synqzx.jpg"
@@ -81,19 +79,19 @@ const features = [
 
 const testimonials = [
   {
-    name: "Sarah Johnson",
-    business: "Johnson's Diner",
+    name: "Sandeep",
+    business: "Maketi Products",
     rating: 5,
     comment: "Best quality poultry products we've ever used. Our customers always compliment the taste!"
   },
   {
-    name: "Mike Chen",
+    name: "Krishna",
     business: "Chen's Market",
     rating: 5,
     comment: "Reliable delivery and exceptional freshness. Perfect for our retail business."
   },
   {
-    name: "Lisa Rodriguez",
+    name: "Sumit",
     business: "Rodriguez Catering",
     rating: 5,
     comment: "Outstanding service and premium quality. They never disappoint for our events."
@@ -101,17 +99,20 @@ const testimonials = [
 ];
 
 
-
 export default function Home() {
 
   const router = useRouter();
 
   return (
-    <section style={{}}>
+    <section>
 
       <div style={{ maxWidth: "1200px", minWidth: "350px", margin: "2em auto", padding: "0em 0.5em", }}>
         <div style={{ display: "flex", justifyContent: "space-around", flexWrap: "wrap", gap: "1em", }}>
-          <section style={{ flex: "1 1 350px", padding: "5em", backgroundColor: "gold", }} className="object-cover rounded-3xl shadow-2xl"></section>
+          <section style={{ flex: "1 1 350px", padding: "1.5em", }} className="object-cover">
+            Choosing Natukodi, or country chicken, over boiler chicken reflects a commitment to healthier eating, cultural pride, and community support. Natukodi is naturally raised, grows at a slower pace, and develops richer flavor and firmer texture, making it a valued ingredient in traditional Telangana cuisine. Its taste brings back memories of village-style cooking and family recipes that have been cherished for generations. Beyond flavor, Natukodi is often considered a healthier choice because the birds are typically free-ranging, exposed to less artificial feed, and produce leaner meat with better nutritional quality.
+            <br /><br />
+            Selecting Natukodi also contributes to rural development. Many families, especially women, depend on small-scale poultry farming for steady income. When consumers choose Natukodi, they help sustain these livelihoods and encourage more people to remain involved in traditional farming practices. Growing demand also motivates young entrepreneurs to adopt sustainable and ethical poultry-rearing methods, strengthening the overall agriculture ecosystem. Ultimately, choosing Natukodi supports better food quality, rural empowerment, and the preservation of Telangana’s culinary heritage.
+          </section>
           <Image src="https://res.cloudinary.com/ddgmru7d1/image/upload/v1756299859/chicken_01_dll8od.jpg" alt="chicken_one" className="object-cover rounded-3xl shadow-2xl" width={450} height={450} style={{ flex: "1 1 300px", }} />
         </div>
       </div>
@@ -188,13 +189,13 @@ export default function Home() {
         <div className="flex justify-center">
           <button
             className="px-4 py-2 mr-2 border border-yellow-500 rounded-2xl hover:bg-yellow-500 hover:text-white hover:cursor-pointer"
-            onClick={() => router.push("/shop")}
+            onClick={() => router.push("/contact")}
           >
-            Shop Now
+            Contact Us
           </button>
           <button
             className="px-4 py-2 ml-2 border border-yellow-500 rounded-2xl hover:bg-yellow-500 hover:text-white hover:cursor-pointer"
-            onClick={() => router.push("/shop")}
+            onClick={() => router.push("/registration")}
           >
             Become a Vendor
           </button>
