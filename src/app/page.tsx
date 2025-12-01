@@ -48,9 +48,10 @@ const featuredProducts = [
     id: 3,
     name: "Lemons",
     price: "₹ 5/piece",
-    description: "Antibiotic-free turkey with rich, natural flavor",
+    description: "Antibiotic-free lemons, natural flavor",
     badge: "Organic",
-    image: "https://res.cloudinary.com/ddgmru7d1/image/upload/v1756299859/eggs_01_synqzx.jpg"
+    // image: "https://res.cloudinary.com/ddgmru7d1/image/upload/v1756299859/eggs_01_synqzx.jpg"
+    image: "https://res.cloudinary.com/ddgmru7d1/image/upload/v1764606496/shutterstock_2621791047-2_piad3f.jpg"
   }
 ];
 
