@@ -207,7 +207,7 @@ export default function Home() {
       <section style={{ backgroundColor: "black", color: "whitesmoke", }}>
         <section style={{ maxWidth: "1200px", minWidth: "350px", margin: "0em auto", display: "flex", justifyContent: "space-between", padding: "1em 0em", flexWrap: "wrap", }}>
           <p>📞 Call us: +91 874512 12458</p>
-          <p>📧 Email: contact@vintagepoultry.com</p>
+          <p>📧 Email: nizam.vintage1@gmail.com</p>
           <p>🕒 Mon-Fri: 7:00 AM - 6:00 PM</p>
         </section>
       </section>
