@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
-
-// @ts-expect-error
-import "./globals.css";
 import { ReactNode } from "react";
 
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import "./globals.css";
+
 import { UserProvider } from "./context/UserContext";
 
 
