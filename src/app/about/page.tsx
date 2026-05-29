@@ -100,14 +100,6 @@ const qualityStandards = [
   },
 ];
 
-const timeline = [
-  { year: "1995", event: "Farm founded by Johnson family" },
-  { year: "2001", event: "FSSAI Organic certification obtained" },
-  { year: "2008", event: "Expanded to 500 acres of farmland" },
-  { year: "2015", event: "Launched vendor partnership program" },
-  { year: "2020", event: "Introduced online ordering system" },
-  { year: "2024", event: "Serving 500+ customers region-wide" },
-];
 
 // -------------------- PAGE COMPONENT --------------------
 
@@ -182,24 +174,6 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-
-      {/* ---------- TIMELINE SECTION ---------- */}
-      {/* <section className="bg-gray-100 py-10">
-        <Heading title="Our Journey" />
-        <Description title="Key milestones in our farming legacy" />
-
-        <div className="max-w-6xl mx-auto px-4 grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
-          {timeline.map((t, index) => (
-            <div
-              key={index}
-              className="bg-white border p-5 rounded-xl shadow-sm"
-            >
-              <p className="font-bold text-yellow-600">{t.year}</p>
-              <p className="text-sm text-gray-700 mt-1">{t.event}</p>
-            </div>
-          ))}
-        </div>
-      </section> */}
 
       {/* ---------- FARMING PRACTICES ---------- */}
       <section className="bg-gray-100 py-10">
