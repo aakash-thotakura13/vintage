@@ -31,13 +31,13 @@ export default function VendorDashboard() {
         >
           <div style={{ display: "flex", alignItems: "flex-start" }}>
             {
-              path === "/profile/cart" && Object.keys(countsMap)?.length
+              path === "/customer/cart" && Object.keys(countsMap)?.length
                 ? <strong>To Cart</strong>
                 : ""
             }
             {title}
             {
-              path === "/profile/cart" && Object.keys(countsMap)?.length
+              path === "/customer/cart" && Object.keys(countsMap)?.length
                 ? <div style={{ width: "7px", aspectRatio: "1/1", borderRadius: "50%", fontSize: "0.75em" }}>{Object.keys(countsMap)?.length}</div>
                 : ""
             }

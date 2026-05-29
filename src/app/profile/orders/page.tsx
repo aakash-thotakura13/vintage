@@ -37,7 +37,7 @@ const featuredProducts = [
 ];
 
 
- function OrdersPage() {
+export default function OrdersPage() {
   const { cartItems, addToCart, removeFromCart, getCountsMap } = useCart();
   const countsMap = getCountsMap();
 

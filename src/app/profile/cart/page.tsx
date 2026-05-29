@@ -48,7 +48,7 @@ export default function CartAndCheckoutPage() {
       if (data.success) {
         alert("Order placed successfully!");
         clearCart();
-        router.push("/profile/orders");
+        router.push("/customer/orders");
       } else {
         console.error("Failed to place order:", data.error);
         alert(`Failed to place order: ${data.error}`);

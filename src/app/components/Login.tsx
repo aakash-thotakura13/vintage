@@ -32,7 +32,7 @@ export default function Login() {
       // if ADMIN → do NOT fetch vendor details
       if (data.role === "admin") {
         setUser({ username: "admin", role: "admin" });
-        // router.push("/profile/admin");
+        // router.push("/customer/admin");
         router.push("/admin");
         return;
       }
@@ -46,7 +46,7 @@ export default function Login() {
 
       if (fullRes.ok && fullData.success) {
         setUser(fullData.vendor);
-        // router.push("/profile/orders");
+        // router.push("/customer/orders");
         router.push("/customer/orders");
       }
 

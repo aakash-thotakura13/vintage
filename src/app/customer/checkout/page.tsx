@@ -16,7 +16,7 @@ export default function CheckoutPage() {
   useEffect(() => {
     if (cartItems.length === 0) {
       // Redirect back to cart if empty
-      router.push("/profile/invoice");
+      router.push("/customer/invoice");
     }
   }, [cartItems, router]);
 
@@ -40,7 +40,7 @@ export default function CheckoutPage() {
         onClick={() => {
           alert("Order placed successfully!");
           clearCart();
-          router.push("/profile/orders");
+          router.push("/customer/orders");
         }}
         style={{
           marginTop: "2em",
