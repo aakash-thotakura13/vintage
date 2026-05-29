@@ -222,7 +222,7 @@ export default function AboutPage() {
       </section>
 
       {/* ---------- QUALITY STANDARDS ---------- */}
-      <section className="py-10">
+      <section className="pb-20">
         <Heading title="Quality Standards" />
         <Description title="Every product meets the highest standards of safety and freshness." />
 
