@@ -10,7 +10,7 @@ interface ContactUsDetailsProps {
 }
 
 
-const ContactUseDetails: React.FC<ContactUsDetailsProps> = ({ contactInfo }) => {
+const ContactUsDetails: React.FC<ContactUsDetailsProps> = ({ contactInfo }) => {
 
   return (
     <div style={{  padding: "0.5em", borderRadius: "1em" }}>
@@ -35,4 +35,4 @@ const ContactUseDetails: React.FC<ContactUsDetailsProps> = ({ contactInfo }) => 
   )
 };
 
-export default ContactUseDetails;
+export default ContactUsDetails;

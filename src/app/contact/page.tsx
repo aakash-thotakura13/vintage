@@ -3,7 +3,7 @@ import { Metadata } from "next";
 import Description from "../components/Description"
 import Heading from "../components/Heading"
 import ContactPageForm from "../components/reusable/ContactPageForm"
-import ContactUseDetails from "../components/ContactUsDetails";
+import ContactUsDetails from "../components/ContactUsDetails";
 
 // app/contact/page.tsx
 
@@ -108,7 +108,7 @@ export default function ContactPage() {
           <Heading title="Get in Touch" />
           <Description title="Whether you have questions about our products, want to become a vendor partner, or need support with your order, we're here to help." />
 
-          <ContactUseDetails contactInfo={contactInfo} />
+          <ContactUsDetails contactInfo={contactInfo} />
         </section>
 
       </section>
