@@ -4,12 +4,14 @@ import { usePathname } from "next/navigation";
 import { IoIosCart } from "react-icons/io";
 import { useCart } from "../context/CartContext";
 
+
 const navLinks = [
-  { title: "Products", path: "/profile/orders" },
-  { title: "Invoice", path: "/profile/invoice" },
-  // { title: "Settings", path: "/profile/settings" },
-  { title: <IoIosCart style={{ fontSize: "1.5em" }} />, path: "/profile/cart" },
+  { title: "Products", path: "/customer/orders" },
+  { title: "Invoice", path: "/customer/invoice" },
+  // { title: "Settings", path: "/customer/settings" },
+  { title: <IoIosCart style={{ fontSize: "1.5em" }} />, path: "/customer/cart" },
 ];
+
 
 
 export default function VendorDashboard() {
