@@ -30,27 +30,57 @@ const firstBar = [
 const featuredProducts = [
   {
     id: 1,
-    name: "Pasture-Range Chicken",
-    price: "₹ 650/kg",
-    description: "Premium quality free-range chicken raised on organic feed",
-    badge: "Bestseller",
-    image: "https://res.cloudinary.com/ddgmru7d1/image/upload/v1756299859/chicken_01_dll8od.jpg"
+    name: "Chima Kodi",
+    price: "₹ 800/kg",
+    offerPrice: "₹ 750/kg",
+    description: "Premium country chicken with rich flavor and firm texture, naturally raised on farms",
+    badge: "Country Chicken",
+    image: "https://res.cloudinary.com/ddgmru7d1/image/upload/v1780036377/cc-chimakodi_hrukkh.png"
   },
   {
     id: 2,
-    name: "Farm Fresh Eggs",
-    price: "₹ 20/piece",
-    description: "Grade A fresh eggs from pasture-raised hens",
-    badge: "Fresh Daily",
-    image: "https://res.cloudinary.com/ddgmru7d1/image/upload/v1757494577/2825573728_bf0c703dd0_b_uwwapm.jpg"
+    name: "Natu Kodi",
+    price: "₹ 800/kg",
+    offerPrice: "₹ 750/kg",
+    description: "Traditional free-range native chicken with authentic taste and high protein",
+    badge: "Farm Fresh",
+    image: "https://res.cloudinary.com/ddgmru7d1/image/upload/v1780036377/cc-natukodi_kriblz.png"
   },
   {
     id: 3,
+    name: "Kadaknath Chicken",
+    price: "₹ 800/kg",
+    offerPrice: "₹ 750/kg",
+    description: "Rare black chicken breed known for its unique flavor, lean meat, and high nutrition",
+    badge: "Premium Breed",
+    image: "https://res.cloudinary.com/ddgmru7d1/image/upload/v1780036377/cc-kadaknath_gdaqii.png"
+  },
+  {
+    id: 4,
+    name: "Farm Fresh Eggs",
+    price: "-",
+    offerPrice: "Contact for pricing",
+    description: "Grade A fresh eggs from pasture-raised hens",
+    badge: "Fresh Daily",
+    image: "https://res.cloudinary.com/ddgmru7d1/image/upload/v1780037797/2825573728_bf0c703dd0_b_uwwapm.jpg"
+  },
+  {
+    id: 5,
+    name: "Mutton",
+    price: "₹ 800/kg",
+    offerPrice: "₹ 700/kg",
+    description: "Fresh farm-sourced tender mutton with rich flavor and premium quality cuts, perfect for traditional curries and grills",
+    badge: "Farm Fresh",
+    image: "https://res.cloudinary.com/ddgmru7d1/image/upload/v1780039547/ChatGPT_Image_May_29_2026_12_55_09_PM_ixnomk.png"
+  },
+  {
+    id: 6,
     name: "Lemons",
-    price: "₹ 5/piece",
-    description: "Antibiotic-free turkey with rich, natural flavor",
+    price: "-",
+    offerPrice: "₹ 5/piece",
+    description: "Fresh organic lemons sourced directly from local farms",
     badge: "Organic",
-    image: "https://res.cloudinary.com/ddgmru7d1/image/upload/v1756299859/eggs_01_synqzx.jpg"
+    image: "https://res.cloudinary.com/ddgmru7d1/image/upload/v1780036874/lemons.jpg"
   }
 ];
 
@@ -135,19 +165,18 @@ export default function Home() {
         <Heading title="Featured Products" />
         <Description title="Discover our most popular farm-fresh products, carefully selected for quality and taste!" />
 
-        <section style={{ maxWidth: "1200px", minWidth: "350px", margin: "2em auto", padding: "0em 0.5em", display: "flex", justifyContent: "space-between", flexWrap: "wrap", gap: "1em", }}>
-          {
-            featuredProducts.map((entry) => (
-              <ProductCard
-                key={entry.id}
-                name={entry.name}
-                price={entry.price}
-                description={entry.description}
-                badge={entry.badge}
-                image={entry.image}
-              />
-            ))
-          }
+        <section className="max-w-[1200px] min-w-[350px] mx-auto my-8 px-2 flex justify-between flex-wrap gap-4 z-0">
+          {featuredProducts.map((entry) => (
+            <ProductCard
+              key={entry.id}
+              name={entry.name}
+              price={entry.price}
+              offerPrice={entry.offerPrice}
+              description={entry.description}
+              badge={entry.badge}
+              image={entry.image}
+            />
+          ))}
         </section>
 
       </section>
