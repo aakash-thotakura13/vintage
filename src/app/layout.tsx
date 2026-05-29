@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-// @ts-ignore
+// @ts-expect-error
 import "./globals.css";
 import { ReactNode } from "react";
 
