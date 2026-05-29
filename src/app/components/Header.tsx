@@ -10,8 +10,8 @@ const navLinks = [
   { title: "Home", path: "/" },
   { title: "About", path: "/about" },
   { title: "Contact", path: "/contact" },
-  { title: "Vendor Registration", path: "/registration" },
-  { title: "Profile", path: "/profile" },
+  // { title: "Vendor Registration", path: "/registration" },
+  // { title: "Profile", path: "/profile" },
 ];
 
 export default function Header() {
@@ -47,7 +47,7 @@ export default function Header() {
 
 
   return (
-    <header style={{ position: "sticky", top: 0, backgroundColor: "white", }}>
+    <header style={{ position: "sticky", top: 0, backgroundColor: "white", }} className="z-50 shadow-md">
 
       <section style={{ maxWidth: "1200px", minWidth: "350px", margin: "0 auto", display: "flex", justifyContent: "space-between", alignItems: "center", padding: "0.5em 1em" }}>
 

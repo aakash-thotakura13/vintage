@@ -7,6 +7,7 @@ type ProductCardProps = {
   image: string
 }
 
+
 export default function ProductCard(
   { name, price, offerPrice, description, badge, image }: ProductCardProps
 ) {
