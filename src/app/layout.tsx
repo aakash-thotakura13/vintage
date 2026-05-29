@@ -49,7 +49,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 
           <Footer />
 
-          <p className="text-center py-1">© 2024 VintagePoultry. All rights reserved.</p>
+          <p className="text-center py-1">© 2025 VintagePoultry. All rights reserved.</p>
 
         </UserProvider>
       </body>

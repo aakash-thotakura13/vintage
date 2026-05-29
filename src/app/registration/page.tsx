@@ -77,7 +77,7 @@ export default function VendorRegistration() {
 
       <p className="text-2xl pb-4" style={{ textAlign: "center" }}>Business Information</p>
 
-      <form onSubmit={handleSubmit} style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-between", alignItems: "baseline", }}>
+      <form onSubmit={handleSubmit} style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-between", alignItems: "baseline", boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px", padding: "1em", borderRadius: "1em", }}>
         {/* First Row */}
         <Input label="Business Name *" name="businessName" value={formData.businessName} onChange={handleChange} placeholder="Enter your Business Name" />
 

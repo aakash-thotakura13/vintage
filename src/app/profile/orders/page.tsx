@@ -10,7 +10,7 @@ const featuredProducts = [
   {
     id: 1,
     name: "Free-Range Chicken",
-    price: 1999,
+    price: 650,
     units: "kg",
     description: "Premium quality free-range chicken raised on organic feed",
     badge: "Bestseller",
@@ -19,7 +19,7 @@ const featuredProducts = [
   {
     id: 2,
     name: "Farm Fresh Eggs",
-    price: 89,
+    price: 240,
     units: "dozen",
     description: "Grade A fresh eggs from pasture-raised hens",
     badge: "Fresh Daily",
@@ -28,11 +28,11 @@ const featuredProducts = [
   {
     id: 3,
     name: "Organic Turkey",
-    price: 799,
-    units: "kg",
+    price: 60,
+    units: "dozen",
     description: "Antibiotic-free turkey with rich, natural flavor",
     badge: "Organic",
-    image: "https://res.cloudinary.com/ddgmru7d1/image/upload/v1756299859/eggs_01_synqzx.jpg"
+        image: "https://res.cloudinary.com/ddgmru7d1/image/upload/v1764606496/shutterstock_2621791047-2_piad3f.jpg"
   }
 ];
 
