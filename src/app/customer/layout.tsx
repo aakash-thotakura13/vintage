@@ -1,7 +1,7 @@
 "use client";
 
 import { ReactNode } from "react";
-import { UserProvider, useUser } from "../context/UserContext";
+import {  useUser } from "../context/UserContext";
 import VendorDashboard from "../components/VendorDashboard";
 import Login from "../components/Login";
 import { CartProvider } from "../context/CartContext";
