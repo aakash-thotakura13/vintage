@@ -1,5 +1,6 @@
 type ProductCardProps = {
   name: string,
+  telName: string,
   price: string,
   offerPrice: string,
   description: string,
@@ -9,7 +10,7 @@ type ProductCardProps = {
 
 
 export default function ProductCard(
-  { name, price, offerPrice, description, badge, image }: ProductCardProps
+  { name, telName, price, offerPrice, description, badge, image }: ProductCardProps
 ) {
   return (
     <section className="relative rounded-xl border border-yellow-500 overflow-hidden flex-1 basis-[350px] min-w-[350px] max-w-[380px]">
@@ -23,7 +24,10 @@ export default function ProductCard(
       />
       <div className="p-4 bg-white">
         <div className="flex justify-between items-end">
-          <p className="font-bold text-2xl">{name}</p>
+          <div className="flex flex-col items-end">
+            <p className="font-bold text-2xl">{name}</p>
+            <p className="font-bold text-md">{telName}</p>
+          </div>
           <div className="flex flex-col items-end">
             <span className="text-gray-400 line-through text-sm">{price}</span>
             <span className="font-bold text-yellow-500 text-lg">{offerPrice}</span>

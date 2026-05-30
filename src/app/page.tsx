@@ -30,7 +30,8 @@ const firstBar = [
 const featuredProducts = [
   {
     id: 1,
-    name: "Chima Kodi",
+    name: "Guinea Fowl",
+    telName: "Chima Kodi",
     price: "₹ 800/kg",
     offerPrice: "₹ 750/kg",
     description: "Premium country chicken with rich flavor and firm texture, naturally raised on farms",
@@ -39,7 +40,8 @@ const featuredProducts = [
   },
   {
     id: 2,
-    name: "Natu Kodi",
+    name: "Country Chicken",
+    telName: "Natu Kodi",
     price: "₹ 800/kg",
     offerPrice: "₹ 750/kg",
     description: "Traditional free-range native chicken with authentic taste and high protein",
@@ -48,7 +50,8 @@ const featuredProducts = [
   },
   {
     id: 3,
-    name: "Kadaknath Chicken",
+    name: "Black Hen",
+    telName: "Kadaknath",
     price: "₹ 800/kg",
     offerPrice: "₹ 750/kg",
     description: "Rare black chicken breed known for its unique flavor, lean meat, and high nutrition",
@@ -58,6 +61,7 @@ const featuredProducts = [
   {
     id: 4,
     name: "Farm Fresh Eggs",
+    telName:"",
     price: "-",
     offerPrice: "Contact for pricing",
     description: "Grade A fresh eggs from pasture-raised hens",
@@ -67,6 +71,7 @@ const featuredProducts = [
   {
     id: 5,
     name: "Mutton",
+    telName:"",
     price: "₹ 800/kg",
     offerPrice: "₹ 700/kg",
     description: "Fresh farm-sourced tender mutton with rich flavor and premium quality cuts, perfect for traditional curries and grills",
@@ -76,6 +81,7 @@ const featuredProducts = [
   {
     id: 6,
     name: "Lemons",
+    telName:"",
     price: "-",
     offerPrice: "₹ 5/piece",
     description: "Fresh organic lemons sourced directly from local farms",
@@ -170,6 +176,7 @@ export default function Home() {
             <ProductCard
               key={entry.id}
               name={entry.name}
+              telName={entry.telName}
               price={entry.price}
               offerPrice={entry.offerPrice}
               description={entry.description}
