@@ -76,7 +76,7 @@ const featuredProducts = [
     offerPrice: "₹ 700/kg",
     description: "Fresh farm-sourced tender mutton with rich flavor and premium quality cuts, perfect for traditional curries and grills",
     badge: "Farm Fresh",
-    image: "https://res.cloudinary.com/ddgmru7d1/image/upload/v1780039547/ChatGPT_Image_May_29_2026_12_55_09_PM_ixnomk.png"
+    image: "https://res.cloudinary.com/ddgmru7d1/image/upload/v1780462660/sheep_u0nu7y.png"
   },
   {
     id: 6,
