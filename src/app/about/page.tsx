@@ -147,8 +147,20 @@ export default function AboutPage() {
               poultry that&apos;s as fresh and flavorful as it gets.
             </p>
 
+          </div>
 
-            <div className="flex gap-4 mt-3">
+          {/* Right image */}
+          <div className="flex-1 min-w-[320px]">
+
+            <Image
+              src="https://res.cloudinary.com/ddgmru7d1/image/upload/v1756299859/chicken_01_dll8od.jpg"
+              alt="Organic farm chicken"
+              width={550}
+              height={400}
+              className="rounded-xl shadow-xl w-full h-auto mt-15"
+            />
+
+            <div className="flex gap-4 mt-5">
               {["Family Owned", "Est. 1995", "Organic Certified"].map(
                 (item, index) => (
                   <span
@@ -160,17 +172,7 @@ export default function AboutPage() {
                 )
               )}
             </div>
-          </div>
 
-          {/* Right image */}
-          <div className="flex-1 min-w-[320px]">
-            <Image
-              src="https://res.cloudinary.com/ddgmru7d1/image/upload/v1756299859/chicken_01_dll8od.jpg"
-              alt="Organic farm chicken"
-              width={550}
-              height={400}
-              className="rounded-xl shadow-xl w-full h-auto"
-            />
           </div>
         </div>
       </section>
