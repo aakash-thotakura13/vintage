@@ -54,7 +54,7 @@ const contactInfo = [
   {
     icon: "📞",
     title: "Phone Numbers",
-    details: ["Main: 7893912177"],
+    details: ["Main: 7893912100"],
   },
   {
     icon: "📧",
@@ -64,7 +64,7 @@ const contactInfo = [
   {
     icon: "🕒",
     title: "Business Hours",
-    details: ["Mon-Fri: 7:00 AM - 2:00 PM", "Sat-Sun: 7:00 AM - 4:00 PM"],
+    details: ["Everyday: 7:00 AM - 8:00 PM", "Please contact 4-days before for bulk orders."],
   }
 ];
 
