@@ -30,23 +30,25 @@ const firstBar = [
 const featuredProducts = [
   {
     id: 1,
-    name: "Guinea Fowl",
-    telName: "Chima Kodi",
-    price: "₹ 800/kg",
-    offerPrice: "₹ 750/kg",
-    description: "Premium country chicken with rich flavor and firm texture, naturally raised on farms",
-    badge: "Country Chicken",
-    image: "https://res.cloudinary.com/ddgmru7d1/image/upload/v1780036377/cc-chimakodi_hrukkh.png"
-  },
-  {
-    id: 2,
     name: "Country Chicken",
     telName: "Natu Kodi",
     price: "₹ 800/kg",
     offerPrice: "₹ 750/kg",
     description: "Traditional free-range native chicken with authentic taste and high protein",
     badge: "Farm Fresh",
-    image: "https://res.cloudinary.com/ddgmru7d1/image/upload/v1780036377/cc-natukodi_kriblz.png"
+    image: "https://res.cloudinary.com/ddgmru7d1/image/upload/v1780036377/cc-natukodi_kriblz.png",
+    available: true,
+  },
+  {
+    id: 2,
+    name: "Guinea Fowl",
+    telName: "Chima Kodi",
+    price: "₹ 800/kg",
+    offerPrice: "₹ 750/kg",
+    description: "Premium country chicken with rich flavor and firm texture, naturally raised on farms",
+    badge: "Premium Breed",
+    image: "https://res.cloudinary.com/ddgmru7d1/image/upload/v1780036377/cc-chimakodi_hrukkh.png",
+    available: true,
   },
   {
     id: 3,
@@ -56,37 +58,41 @@ const featuredProducts = [
     offerPrice: "₹ 750/kg",
     description: "Rare black chicken breed known for its unique flavor, lean meat, and high nutrition",
     badge: "Premium Breed",
-    image: "https://res.cloudinary.com/ddgmru7d1/image/upload/v1780036377/cc-kadaknath_gdaqii.png"
+    image: "https://res.cloudinary.com/ddgmru7d1/image/upload/v1780036377/cc-kadaknath_gdaqii.png",
+    available: false,
   },
   {
     id: 4,
     name: "Farm Fresh Eggs",
-    telName:"",
+    telName: "",
     price: "-",
     offerPrice: "Contact for pricing",
     description: "Grade A fresh eggs from pasture-raised hens",
     badge: "Fresh Daily",
-    image: "https://res.cloudinary.com/ddgmru7d1/image/upload/v1780037797/2825573728_bf0c703dd0_b_uwwapm.jpg"
+    image: "https://res.cloudinary.com/ddgmru7d1/image/upload/v1780037797/2825573728_bf0c703dd0_b_uwwapm.jpg",
+    available: true,
   },
   {
     id: 5,
     name: "Mutton",
-    telName:"",
+    telName: "",
     price: "₹ 800/kg",
     offerPrice: "₹ 700/kg",
     description: "Fresh farm-sourced tender mutton with rich flavor and premium quality cuts, perfect for traditional curries and grills",
     badge: "Farm Fresh",
-    image: "https://res.cloudinary.com/ddgmru7d1/image/upload/v1780462660/sheep_u0nu7y.png"
+    image: "https://res.cloudinary.com/ddgmru7d1/image/upload/v1780462660/sheep_u0nu7y.png",
+    available: true,
   },
   {
     id: 6,
     name: "Lemons",
-    telName:"",
+    telName: "",
     price: "-",
     offerPrice: "₹ 5/piece",
     description: "Fresh organic lemons sourced directly from local farms",
     badge: "Organic",
-    image: "https://res.cloudinary.com/ddgmru7d1/image/upload/v1780036874/lemons.jpg"
+    image: "https://res.cloudinary.com/ddgmru7d1/image/upload/v1780036874/lemons.jpg",
+    available: true,
   }
 ];
 
@@ -99,7 +105,7 @@ const features = [
   {
     icon: "🚚",
     title: "Fast Delivery",
-    description: "Same-day delivery available for orders placed before 2 PM"
+    description: "Same-day delivery available"
   },
   {
     icon: "🏆",
@@ -172,18 +178,20 @@ export default function Home() {
         <Description title="Discover our most popular farm-fresh products, carefully selected for quality and taste!" />
 
         <section className="max-w-[1200px] min-w-[350px] mx-auto my-8 px-2 flex justify-between flex-wrap gap-4 z-0">
-          {featuredProducts.map((entry) => (
-            <ProductCard
-              key={entry.id}
-              name={entry.name}
-              telName={entry.telName}
-              price={entry.price}
-              offerPrice={entry.offerPrice}
-              description={entry.description}
-              badge={entry.badge}
-              image={entry.image}
-            />
-          ))}
+          {featuredProducts
+            .map((entry) => (
+              <ProductCard
+                key={entry.id}
+                name={entry.name}
+                telName={entry.telName}
+                price={entry.price}
+                offerPrice={entry.offerPrice}
+                description={entry.description}
+                badge={entry.badge}
+                image={entry.image}
+                available={entry.available}
+              />
+            ))}
         </section>
 
       </section>
@@ -241,9 +249,9 @@ export default function Home() {
 
       <section style={{ backgroundColor: "black", color: "whitesmoke", }}>
         <section style={{ maxWidth: "1200px", minWidth: "350px", margin: "0em auto", display: "flex", justifyContent: "space-between", padding: "1em 0em", flexWrap: "wrap", }}>
-          <p>📞 Call us: +91 874512 12458</p>
+          <p>📞 Call us: +91 78939 12100</p>
           <p>📧 Email: nizam.vintage1@gmail.com</p>
-          <p>🕒 Mon-Fri: 7:00 AM - 6:00 PM</p>
+          <p>🕒 : 7:00 AM - 8:00 PM <span>Please contact 4-days before for bulk orders.</span></p>
         </section>
       </section>
 
