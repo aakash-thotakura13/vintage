@@ -10,7 +10,7 @@ const navLinks = [
   { title: "Home", path: "/" },
   { title: "About", path: "/about" },
   { title: "Contact", path: "/contact" },
-  // { title: "Vendor Registration", path: "/registration" },
+  { title: "Become A Vendor", path: "/registration" },
   // { title: "Profile", path: "/profile" },
 ];
 
