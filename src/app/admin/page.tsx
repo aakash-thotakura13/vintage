@@ -20,7 +20,7 @@ export default function AdminPage() {
       const res = await fetch("/api/order");
       const data = await res.json();
       if (data.success) setOrders(data.orders);
-      console.log("data",   data)
+      // console.log("data", data)
     }
     loadOrders();
   }, []);
@@ -101,6 +101,15 @@ export default function AdminPage() {
     }
   }
 
+  // Add this color map above the return statement
+  const statusColors: Record<string, string> = {
+    Pending: "bg-yellow-50",
+    Processing: "bg-blue-50",
+    Shipped: "bg-purple-50",
+    Delivered: "bg-green-50",
+    Cancelled: "bg-red-50",
+  };
+
 
   return (
     <div className="p-6 space-y-6">
@@ -174,7 +183,7 @@ export default function AdminPage() {
 
           <tbody>
             {paginatedOrders.map((order) => (
-              <tr key={order._id} className="hover:bg-gray-50">
+              <tr key={order._id} className={`${statusColors[order.status] ?? "bg-white"} transition-colors duration-300`}>
                 {/* <td className="p-3 border">{order._id}</td> */}
                 <td className="p-3 border">{order.vendor.businessName}</td>
                 <td className="p-3 border">
