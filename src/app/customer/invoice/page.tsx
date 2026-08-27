@@ -32,6 +32,10 @@ export default function InvoicePage() {
   //   console.log(order.items);
   // });
 
+  const sortedOrders = [...(vendorData.orders ?? [])].sort(
+    (a, b) => new Date(b.orderDate).getTime() - new Date(a.orderDate).getTime()
+  );
+
 
   const getStatusStyles = (status: string) => {
     switch (status.toLowerCase()) {
@@ -51,13 +55,11 @@ export default function InvoicePage() {
   };
 
 
-
-
   return (
     <section>
       <Heading title="Invoice Management" />
-      <Description title="Download and manage your invoices for tax and accounting purposes." />
 
+      <Description title="Download and manage your invoices for tax and accounting purposes." />
 
       <section
         style={{
@@ -70,9 +72,8 @@ export default function InvoicePage() {
           justifyContent: "center",
         }}
       >
-        {vendorData.orders.map((order, id) => {
+        {sortedOrders.length === 0 ? (<p style={{ color: "#6b7280" }}>No orders found.</p>) : sortedOrders.map((order, id) => {
           const { bg, text } = getStatusStyles(order.status);
-
 
           return (
             <section
@@ -93,7 +94,11 @@ export default function InvoicePage() {
                   Order Date:
                 </p>
                 <p style={{ fontWeight: "600" }}>
-                  {new Date(order.orderDate).toLocaleDateString()}
+                  {new Date(order.orderDate).toLocaleDateString("en-GB", {
+                    day: "2-digit",
+                    month: "short",
+                    year: "numeric",
+                  }).replace(/ /g, "-")}
                 </p>
               </div>
 
