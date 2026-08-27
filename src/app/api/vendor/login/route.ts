@@ -24,7 +24,7 @@ export async function POST(req: Request) {
     );
   }
 
-  console.log(vendor)
+  // console.log(vendor)
   const vendorData = vendor.toObject();
 
   return NextResponse.json({

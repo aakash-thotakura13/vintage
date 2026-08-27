@@ -3,6 +3,7 @@
 import { useState } from "react";
 
 export default function VendorRegistration() {
+  
   const [formData, setFormData] = useState({
     businessName: "",
     contactPersonName: "",
@@ -116,7 +117,7 @@ export default function VendorRegistration() {
           <input type="checkbox" name="termsAndConditions" id="termsAndConditions" checked={formData.termsAndConditions} onChange={handleChange} style={{ marginRight: "1em", marginTop: "0.25em" }} />
           <label htmlFor="termsAndConditions">
             <p>I agree to the Terms & Conditions</p>
-            <span style={{ lineHeight: "1px",fontSize:"10px" }}>By checking this box, you agree to our vendor Terms, Conditions and Quality Standards</span>
+            <span style={{ lineHeight: "1px", fontSize: "10px" }}>By checking this box, you agree to our vendor Terms, Conditions and Quality Standards</span>
           </label>
         </div>
 

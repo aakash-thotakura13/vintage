@@ -42,7 +42,7 @@ export default function OrdersPage() {
   const countsMap = getCountsMap();
 
   const { user, setUser } = useUser();
-  console.log(user)
+  // console.log(user)
 
   return (
     <section style={{ maxWidth: "1200px", minWidth: "350px", margin: "0 auto", padding: "0" }}>

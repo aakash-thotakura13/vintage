@@ -32,7 +32,7 @@ const featuredProducts = [
     units: "dozen",
     description: "Antibiotic-free turkey with rich, natural flavor",
     badge: "Organic",
-        image: "https://res.cloudinary.com/ddgmru7d1/image/upload/v1764606496/shutterstock_2621791047-2_piad3f.jpg"
+    image: "https://res.cloudinary.com/ddgmru7d1/image/upload/v1764606496/shutterstock_2621791047-2_piad3f.jpg"
   }
 ];
 
@@ -42,7 +42,7 @@ export default function OrdersPage() {
   const countsMap = getCountsMap();
 
   const { user, setUser } = useUser();
-  console.log(user)
+  // console.log(user)
 
   return (
     <section style={{ maxWidth: "1200px", minWidth: "350px", margin: "0 auto", padding: "0" }}>
@@ -83,7 +83,7 @@ export default function OrdersPage() {
                     <div style={{
                       display: "flex", alignItems: "center", gap: "0.25em", color: "goldenrod"
                     }}>
-                      <button onClick={() => removeFromCart({ ...product, count: 1 })}style={{ fontSize: "1.6em" }}>
+                      <button onClick={() => removeFromCart({ ...product, count: 1 })} style={{ fontSize: "1.6em" }}>
                         <IoIosArrowDropleftCircle />
                       </button>
                       <p style={{ fontSize: "1.3em" }}>{count}</p>
