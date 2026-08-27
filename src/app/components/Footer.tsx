@@ -47,7 +47,7 @@ export default function Footer() {
             <h3 className="font-bold text-yellow-500">Contact Us</h3>
             <address>
               <p><strong>Address: </strong>Vintage Poultry</p>
-              <p>5-5-11, Gandi Nagar, Silk Campus,</p>
+              <p>5-5-11, Gandi Nagar, Sill Campus,</p>
               <p>Palvancha, 507115</p>
               <p><strong>Mobile: </strong>+91 7893912100</p>
               <p><strong>Email: </strong>nizam.vintage1@gmail.com</p>

@@ -5,7 +5,7 @@ import { User } from "@/types/Types"
 
 type UserContextType = {
   user: User | null;
-  setUser: (user: User) => void;
+  setUser: (user: User | null) => void;
   refreshUser: () => Promise<void>; // fetch full vendor info
 };
 
