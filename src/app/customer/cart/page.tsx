@@ -2,17 +2,11 @@
 import { useCart } from "@/app/context/CartContext";
 import { useUser } from "@/app/context/UserContext";
 import { useRouter } from "next/navigation";
-import { useRef, useState } from "react";
 
 export default function CartAndCheckoutPage() {
   const { cartItems, getCountsMap, clearCart, addToCart, removeFromCart } = useCart();
-  const { user, setUser } = useUser();
-
+  const { user } = useUser();
   const router = useRouter();
-  const checkOutRef = useRef<HTMLDivElement>(null);
-
-  const [showCheckout, setShowCheckout] = useState(false);
-  const [loading, setLoading] = useState(false);
 
   const countsMap = getCountsMap();
   const cartList = Object.values(countsMap);
@@ -20,44 +14,7 @@ export default function CartAndCheckoutPage() {
   const totalPrice = cartList.reduce((sum, item) => sum + item.count * item.price, 0);
 
   const handleProceedToCheckout = () => {
-    setShowCheckout(true);
-    setTimeout(() => {
-      checkOutRef.current?.scrollIntoView({ behavior: "smooth" });
-    }, 50);
-  };
-
-  const handlePlaceOrder = async () => {
-    if (cartList.length === 0) {
-      alert("Your cart is empty!");
-      return;
-    }
-
-    setLoading(true);
-
-    try {
-
-      const response = await fetch("/api/cart", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ username: user?.username, cartItems: cartList }),
-      });
-
-      const data = await response.json();
-
-      if (data.success) {
-        alert("Order placed successfully!");
-        clearCart();
-        router.push("/customer/orders");
-      } else {
-        console.error("Failed to place order:", data.error);
-        alert(`Failed to place order: ${data.error}`);
-      }
-    } catch (err) {
-      console.error("Failed to place order:", err);
-      alert("Failed to place order. Check console for details.");
-    } finally {
-      setLoading(false);
-    }
+    router.push("/customer/checkout");
   };
 
   return (
@@ -147,54 +104,6 @@ export default function CartAndCheckoutPage() {
               </button>
             </div>
           </div>
-
-          {/* Checkout Section */}
-          {showCheckout && (
-            <section
-              style={{ maxWidth: "1200px", minWidth: "350px", margin: "2em auto", padding: "1em", border: "1px solid lightgray", borderRadius: "1em" }}
-              ref={checkOutRef}
-            >
-              <h2 style={{ fontSize: "1.8em", marginBottom: "1em" }}>Checkout</h2>
-
-              {/* Header Row */}
-              <li style={{ marginBottom: "1em", display: "flex", gap: "1em", flexWrap: "wrap", justifyContent: "space-between", borderBottom: "2px solid lightgray" }}>
-                <p style={{ flex: "1 1 350px", textAlign: "center", fontWeight: "600" }}>Product Name</p>
-                <p style={{ flex: "1 1 110px", textAlign: "center", fontWeight: "600" }}>Qty</p>
-                <p style={{ flex: "1 1 110px", textAlign: "center", fontWeight: "600" }}>Price</p>
-                <p style={{ flex: "1 1 110px", textAlign: "center", fontWeight: "600" }}>Total</p>
-              </li>
-
-              <ul style={{ listStyle: "none", padding: 0 }}>
-                {cartList.map((item) => (
-                  <li key={item.id} style={{ marginBottom: "1em", display: "flex", gap: "1em", flexWrap: "wrap", justifyContent: "space-between", borderBottom: "1px solid lightgray" }}>
-                    <p style={{ flex: "1 1 350px", textAlign: "left", fontWeight: "500" }}>{item.name}</p>
-                    <p style={{ flex: "1 1 110px", textAlign: "right" }}>x {item.count}</p>
-                    <p style={{ flex: "1 1 110px", textAlign: "right" }}>₹ {item.price}</p>
-                    <p style={{ flex: "1 1 110px", textAlign: "right" }}>₹ {(item.count * item.price).toFixed(2)}</p>
-                  </li>
-                ))}
-              </ul>
-
-              <div style={{ marginTop: "2em" }}>
-                <p style={{ textAlign: "right", fontWeight: "bold" }}>Total Amount: ₹ {totalPrice.toFixed(2)}</p>
-              </div>
-
-              <button
-                onClick={handlePlaceOrder}
-                disabled={loading}
-                style={{
-                  marginTop: "2em",
-                  padding: "0.75em 2em",
-                  backgroundColor: "green",
-                  color: "white",
-                  borderRadius: "0.5em",
-                  cursor: "pointer"
-                }}
-              >
-                {loading ? "Placing Order..." : "Confirm & Place Order"}
-              </button>
-            </section>
-          )}
         </>
       )}
     </section>
