@@ -30,6 +30,7 @@ export default function CheckoutPage() {
   const { user } = useUser();
   const router = useRouter();
   const [isProcessing, setIsProcessing] = useState(false);
+  const [paymentSuccess, setPaymentSuccess] = useState(false);
 
   const countsMap = getCountsMap();
   const cartList = Object.values(countsMap);
@@ -40,10 +41,10 @@ export default function CheckoutPage() {
   );
 
   useEffect(() => {
-    if (cartItems.length === 0) {
+    if (cartItems.length === 0 && !paymentSuccess) {
       router.push("/customer/cart");
     }
-  }, [cartItems, router]);
+  }, [cartItems, router, paymentSuccess]);
 
   async function handlePayment() {
     setIsProcessing(true);
@@ -121,6 +122,7 @@ export default function CheckoutPage() {
             }),
           });
 
+          setPaymentSuccess(true);
           clearCart();
           alert("✅ Payment successful! Order placed.");
           router.push("/customer/orders");
