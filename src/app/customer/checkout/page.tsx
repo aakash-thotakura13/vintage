@@ -86,7 +86,7 @@ export default function CheckoutPage() {
 
     // Step 3 — Open Razorpay modal
     const options = {
-      key: "rzp_test_TWjLOUQteQeiw9",
+      key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID,
       amount: orderData.order.amount,
       currency: orderData.order.currency,
       name: "VintagePoultry",
