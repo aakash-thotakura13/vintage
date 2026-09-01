@@ -4,9 +4,13 @@ import { useUser } from "@/app/context/UserContext";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
+// Tell TypeScript about the Razorpay global loaded via script
 declare global {
   interface Window {
-    Razorpay: any;
+    Razorpay: new (options: Record<string, unknown>) => {
+      open: () => void;
+      on: (event: string, handler: (response: Record<string, unknown>) => void) => void;
+    };
   }
 }
 
@@ -152,9 +156,9 @@ export default function CheckoutPage() {
 
     const rzp = new window.Razorpay(options);
 
-    rzp.on("payment.failed", function (response: any) {
-      console.error("Payment failed:", response.error);
-      alert(`❌ Payment failed: ${response.error.description}`);
+    rzp.on("payment.failed", function (response: Record<string, unknown>) {
+      const error = response.error as Record<string, string>;
+      alert(`❌ Payment failed: ${error.description}`);
       setIsProcessing(false);
     });
 
