@@ -5,10 +5,14 @@ type CartItem = {
   count: number;
   id: number;
   name: string;
-  price: number;
-  units: string;
+  telName?: string;
+  price: number;           // offer price — used in calculations
+  originalPrice?: number;  // original price — display only
+  units?: string;
   description: string;
+  badge?: string;
   image: string;
+  available?: boolean;
 };
 
 type ProductWithCount = CartItem & { count: number };

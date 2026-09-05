@@ -9,31 +9,52 @@ import { IoIosArrowDropleftCircle, IoIosArrowDroprightCircle } from "react-icons
 const featuredProducts = [
   {
     id: 1,
-    name: "Free-Range Chicken",
-    price: 1999,
+    name: "Country Chicken",
+    telName: "Natu Kodi",
+    price: 700,              // ✅ numeric — used for cart calculations
+    originalPrice: 800, // display string
     units: "kg",
-    description: "Premium quality free-range chicken raised on organic feed",
-    badge: "Bestseller",
-    image: "https://res.cloudinary.com/ddgmru7d1/image/upload/v1756299859/chicken_01_dll8od.jpg"
+    description: "Traditional free-range native chicken with authentic taste and high protein",
+    badge: "Farm Fresh",
+    image: "https://res.cloudinary.com/ddgmru7d1/image/upload/v1780036377/cc-natukodi_kriblz.png",
+    available: true,
   },
   {
     id: 2,
-    name: "Farm Fresh Eggs",
-    price: 89,
-    units: "dozen",
-    description: "Grade A fresh eggs from pasture-raised hens",
-    badge: "Fresh Daily",
-    image: "https://res.cloudinary.com/ddgmru7d1/image/upload/v1757494577/2825573728_bf0c703dd0_b_uwwapm.jpg"
+    name: "Guinea Fowl",
+    telName: "Chima Kodi",
+    price: 700,
+    originalPrice: 800,
+    units: "kg",
+    description: "Premium country chicken with rich flavor and firm texture, naturally raised on farms",
+    badge: "Premium Breed",
+    image: "https://res.cloudinary.com/ddgmru7d1/image/upload/v1780036377/cc-chimakodi_hrukkh.png",
+    available: true,
   },
   {
     id: 3,
-    name: "Organic Turkey",
-    price: 799,
+    name: "Black Hen",
+    telName: "Kadaknath",
+    price: 700,
+    originalPrice: 800,
     units: "kg",
-    description: "Antibiotic-free turkey with rich, natural flavor",
-    badge: "Organic",
-    image: "https://res.cloudinary.com/ddgmru7d1/image/upload/v1756299859/eggs_01_synqzx.jpg"
-  }
+    description: "Rare black chicken breed known for its unique flavor, lean meat, and high nutrition",
+    badge: "Premium Breed",
+    image: "https://res.cloudinary.com/ddgmru7d1/image/upload/v1780036377/cc-kadaknath_gdaqii.png",
+    available: false,
+  },
+  {
+    id: 4,
+    name: "Farm Fresh Eggs",
+    telName: "",
+    price: 7,              // ✅ numeric — used for cart calculations
+    originalPrice: 10, // display string
+    units: "piece",
+    description: "Grade A fresh eggs from pasture-raised hens",
+    badge: "Fresh Daily",
+    image: "https://res.cloudinary.com/ddgmru7d1/image/upload/v1788596476/eggs_02_nwz4jv.jpg",
+    available: true,
+  },
 ];
 
 
@@ -67,7 +88,7 @@ export default function OrdersPage() {
                   marginBottom: "0.5em", boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px"
                 }}>
                   <img src={product.image} alt={product.name}
-                    style={{ borderRadius: "1em", objectFit: "cover" }} />
+                    style={{ borderRadius: "1em", objectFit: "scale-down" }} />
                 </div>
 
                 <div style={{
@@ -76,14 +97,19 @@ export default function OrdersPage() {
                 }}>
                   <div>
                     <p>{product.name}</p>
-                    <p>₹ {product.price} / {product.units}</p>
+                    <p style={{ textDecoration: "line-through", color: "gray", fontSize: "0.85em" }}>
+                      ₹ {product.originalPrice}/{product.units}
+                    </p>
+                    <p style={{ color: "goldenrod", fontWeight: "bold" }}>
+                      ₹ {product.price}/{product.units}
+                    </p>
                   </div>
 
                   {count > 0 ? (
                     <div style={{
                       display: "flex", alignItems: "center", gap: "0.25em", color: "goldenrod"
                     }}>
-                      <button onClick={() => removeFromCart({ ...product, count: 1 })}style={{ fontSize: "1.6em" }}>
+                      <button onClick={() => removeFromCart({ ...product, count: 1 })} style={{ fontSize: "1.6em" }}>
                         <IoIosArrowDropleftCircle />
                       </button>
                       <p style={{ fontSize: "1.3em" }}>{count}</p>
