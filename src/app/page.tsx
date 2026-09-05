@@ -69,31 +69,31 @@ const featuredProducts = [
     offerPrice: "Contact for pricing",
     description: "Grade A fresh eggs from pasture-raised hens",
     badge: "Fresh Daily",
-    image: "https://res.cloudinary.com/ddgmru7d1/image/upload/v1780037797/2825573728_bf0c703dd0_b_uwwapm.jpg",
+    image: "https://res.cloudinary.com/ddgmru7d1/image/upload/v1788596476/eggs_02_nwz4jv.jpg",
     available: true,
   },
-  {
-    id: 5,
-    name: "Mutton",
-    telName: "",
-    price: "₹ 800/kg",
-    offerPrice: "₹ 700/kg",
-    description: "Fresh farm-sourced tender mutton with rich flavor and premium quality cuts, perfect for traditional curries and grills",
-    badge: "Farm Fresh",
-    image: "https://res.cloudinary.com/ddgmru7d1/image/upload/v1780462660/sheep_u0nu7y.png",
-    available: true,
-  },
-  {
-    id: 6,
-    name: "Lemons",
-    telName: "",
-    price: "-",
-    offerPrice: "₹ 5/piece",
-    description: "Fresh organic lemons sourced directly from local farms",
-    badge: "Organic",
-    image: "https://res.cloudinary.com/ddgmru7d1/image/upload/v1780036874/lemons.jpg",
-    available: true,
-  }
+  // {
+  //   id: 5,
+  //   name: "Mutton",
+  //   telName: "",
+  //   price: "₹ 800/kg",
+  //   offerPrice: "₹ 700/kg",
+  //   description: "Fresh farm-sourced tender mutton with rich flavor and premium quality cuts, perfect for traditional curries and grills",
+  //   badge: "Farm Fresh",
+  //   image: "https://res.cloudinary.com/ddgmru7d1/image/upload/v1780462660/sheep_u0nu7y.png",
+  //   available: true,
+  // },
+  // {
+  //  id: 6,
+  //  name: "Lemons",
+  //  telName: "",
+  //  price: "-",
+  //  offerPrice: "₹ 5/piece",
+  //  description: "Fresh organic lemons sourced directly from local farms",
+  //  badge: "Organic",
+  //  image: "https://res.cloudinary.com/ddgmru7d1/image/upload/v1780036874/lemons.jpg",
+  //  available: true,
+  //}
 ];
 
 const features = [
@@ -155,7 +155,7 @@ export default function Home() {
             <br /><br />
             Selecting Natukodi also contributes to rural development. Many families, especially women, depend on small-scale poultry farming for steady income. When consumers choose Natukodi, they help sustain these livelihoods and encourage more people to remain involved in traditional farming practices. Growing demand also motivates young entrepreneurs to adopt sustainable and ethical poultry-rearing methods, strengthening the overall agriculture ecosystem. Ultimately, choosing Natukodi supports better food quality, rural empowerment, and the preservation of Telangana’s culinary heritage.
           </section>
-          <Image src="https://res.cloudinary.com/ddgmru7d1/image/upload/v1756299859/chicken_01_dll8od.jpg" alt="chicken_one" className="object-cover rounded-3xl shadow-2xl" width={450} height={450} style={{ flex: "1 1 300px", }} />
+          <Image src="https://res.cloudinary.com/ddgmru7d1/image/upload/v1788596353/chicken_02_ak9i7u.jpg" alt="chicken_one" className="object-cover rounded-3xl shadow-2xl" width={450} height={450} style={{ flex: "1 1 300px", }} />
         </div>
       </div>
 
